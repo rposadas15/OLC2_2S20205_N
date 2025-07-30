@@ -1,0 +1,188 @@
+Gramática
+
+    0 $accept: input $end
+
+    1 input: /* vacío */
+    2      | input line
+
+    3 line: expr '\n'
+
+    4 expr: expr '+' expr
+    5     | expr '-' expr
+    6     | expr '*' expr
+    7     | expr '/' expr
+    8     | INT
+
+
+Terminales con las reglas donde aparecen
+
+$end (0) 0
+'\n' (10) 3
+'*' (42) 6
+'+' (43) 4
+'-' (45) 5
+'/' (47) 7
+error (256)
+INT (258) 8
+
+
+No terminales con las reglas donde aparecen
+
+$accept (9)
+    en la izquierda: 0
+input (10)
+    en la izquierda: 1 2, en la derecha: 0 2
+line (11)
+    en la izquierda: 3, en la derecha: 2
+expr (12)
+    en la izquierda: 4 5 6 7 8, en la derecha: 3 4 5 6 7
+
+
+estado 0
+
+    0 $accept: . input $end
+
+    $default  reduce usando la regla 1 (input)
+
+    input  ir al estado 1
+
+
+estado 1
+
+    0 $accept: input . $end
+    2 input: input . line
+
+    $end  desplazar e ir al estado 2
+    INT   desplazar e ir al estado 3
+
+    line  ir al estado 4
+    expr  ir al estado 5
+
+
+estado 2
+
+    0 $accept: input $end .
+
+    $default  aceptar
+
+
+estado 3
+
+    8 expr: INT .
+
+    $default  reduce usando la regla 8 (expr)
+
+
+estado 4
+
+    2 input: input line .
+
+    $default  reduce usando la regla 2 (input)
+
+
+estado 5
+
+    3 line: expr . '\n'
+    4 expr: expr . '+' expr
+    5     | expr . '-' expr
+    6     | expr . '*' expr
+    7     | expr . '/' expr
+
+    '+'   desplazar e ir al estado 6
+    '-'   desplazar e ir al estado 7
+    '*'   desplazar e ir al estado 8
+    '/'   desplazar e ir al estado 9
+    '\n'  desplazar e ir al estado 10
+
+
+estado 6
+
+    4 expr: expr '+' . expr
+
+    INT  desplazar e ir al estado 3
+
+    expr  ir al estado 11
+
+
+estado 7
+
+    5 expr: expr '-' . expr
+
+    INT  desplazar e ir al estado 3
+
+    expr  ir al estado 12
+
+
+estado 8
+
+    6 expr: expr '*' . expr
+
+    INT  desplazar e ir al estado 3
+
+    expr  ir al estado 13
+
+
+estado 9
+
+    7 expr: expr '/' . expr
+
+    INT  desplazar e ir al estado 3
+
+    expr  ir al estado 14
+
+
+estado 10
+
+    3 line: expr '\n' .
+
+    $default  reduce usando la regla 3 (line)
+
+
+estado 11
+
+    4 expr: expr . '+' expr
+    4     | expr '+' expr .
+    5     | expr . '-' expr
+    6     | expr . '*' expr
+    7     | expr . '/' expr
+
+    '*'  desplazar e ir al estado 8
+    '/'  desplazar e ir al estado 9
+
+    $default  reduce usando la regla 4 (expr)
+
+
+estado 12
+
+    4 expr: expr . '+' expr
+    5     | expr . '-' expr
+    5     | expr '-' expr .
+    6     | expr . '*' expr
+    7     | expr . '/' expr
+
+    '*'  desplazar e ir al estado 8
+    '/'  desplazar e ir al estado 9
+
+    $default  reduce usando la regla 5 (expr)
+
+
+estado 13
+
+    4 expr: expr . '+' expr
+    5     | expr . '-' expr
+    6     | expr . '*' expr
+    6     | expr '*' expr .
+    7     | expr . '/' expr
+
+    $default  reduce usando la regla 6 (expr)
+
+
+estado 14
+
+    4 expr: expr . '+' expr
+    5     | expr . '-' expr
+    6     | expr . '*' expr
+    7     | expr . '/' expr
+    7     | expr '/' expr .
+
+    $default  reduce usando la regla 7 (expr)
