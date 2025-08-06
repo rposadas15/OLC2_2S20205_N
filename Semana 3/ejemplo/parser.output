@@ -1,0 +1,279 @@
+Terminals unused in grammar
+
+   CADENA
+
+
+Gramática
+
+    0 $accept: inicio $end
+
+    1 inicio: listainstrucciones
+
+    2 listainstrucciones: listainstrucciones instruccion
+    3                   | instruccion
+
+    4 instruccion: PRINTLN PAR_ABRE expr PAR_CIERRA
+    5            | VAR ID tipo
+    6            | VAR ID tipo IGUAL expr
+    7            | ID IGUAL expr
+    8            | ID DOSPUNTOS_IGUAL expr
+
+    9 tipo: TIPO_INT
+   10     | TIPO_FLOAT
+   11     | TIPO_STRING
+   12     | TIPO_BOOL
+   13     | TIPO_RUNE
+
+   14 expr: ENTERO
+
+
+Terminales con las reglas donde aparecen
+
+$end (0) 0
+error (256)
+ENTERO (258) 14
+CADENA (259)
+ID (260) 5 6 7 8
+PRINTLN (261) 4
+VAR (262) 5 6
+IGUAL (263) 6 7
+DOSPUNTOS_IGUAL (264) 8
+PAR_ABRE (265) 4
+PAR_CIERRA (266) 4
+TIPO_INT (267) 9
+TIPO_FLOAT (268) 10
+TIPO_STRING (269) 11
+TIPO_BOOL (270) 12
+TIPO_RUNE (271) 13
+
+
+No terminales con las reglas donde aparecen
+
+$accept (17)
+    en la izquierda: 0
+inicio (18)
+    en la izquierda: 1, en la derecha: 0
+listainstrucciones (19)
+    en la izquierda: 2 3, en la derecha: 1 2
+instruccion (20)
+    en la izquierda: 4 5 6 7 8, en la derecha: 2 3
+tipo (21)
+    en la izquierda: 9 10 11 12 13, en la derecha: 5 6
+expr (22)
+    en la izquierda: 14, en la derecha: 4 6 7 8
+
+
+estado 0
+
+    0 $accept: . inicio $end
+
+    ID       desplazar e ir al estado 1
+    PRINTLN  desplazar e ir al estado 2
+    VAR      desplazar e ir al estado 3
+
+    inicio              ir al estado 4
+    listainstrucciones  ir al estado 5
+    instruccion         ir al estado 6
+
+
+estado 1
+
+    7 instruccion: ID . IGUAL expr
+    8            | ID . DOSPUNTOS_IGUAL expr
+
+    IGUAL            desplazar e ir al estado 7
+    DOSPUNTOS_IGUAL  desplazar e ir al estado 8
+
+
+estado 2
+
+    4 instruccion: PRINTLN . PAR_ABRE expr PAR_CIERRA
+
+    PAR_ABRE  desplazar e ir al estado 9
+
+
+estado 3
+
+    5 instruccion: VAR . ID tipo
+    6            | VAR . ID tipo IGUAL expr
+
+    ID  desplazar e ir al estado 10
+
+
+estado 4
+
+    0 $accept: inicio . $end
+
+    $end  desplazar e ir al estado 11
+
+
+estado 5
+
+    1 inicio: listainstrucciones .
+    2 listainstrucciones: listainstrucciones . instruccion
+
+    ID       desplazar e ir al estado 1
+    PRINTLN  desplazar e ir al estado 2
+    VAR      desplazar e ir al estado 3
+
+    $default  reduce usando la regla 1 (inicio)
+
+    instruccion  ir al estado 12
+
+
+estado 6
+
+    3 listainstrucciones: instruccion .
+
+    $default  reduce usando la regla 3 (listainstrucciones)
+
+
+estado 7
+
+    7 instruccion: ID IGUAL . expr
+
+    ENTERO  desplazar e ir al estado 13
+
+    expr  ir al estado 14
+
+
+estado 8
+
+    8 instruccion: ID DOSPUNTOS_IGUAL . expr
+
+    ENTERO  desplazar e ir al estado 13
+
+    expr  ir al estado 15
+
+
+estado 9
+
+    4 instruccion: PRINTLN PAR_ABRE . expr PAR_CIERRA
+
+    ENTERO  desplazar e ir al estado 13
+
+    expr  ir al estado 16
+
+
+estado 10
+
+    5 instruccion: VAR ID . tipo
+    6            | VAR ID . tipo IGUAL expr
+
+    TIPO_INT     desplazar e ir al estado 17
+    TIPO_FLOAT   desplazar e ir al estado 18
+    TIPO_STRING  desplazar e ir al estado 19
+    TIPO_BOOL    desplazar e ir al estado 20
+    TIPO_RUNE    desplazar e ir al estado 21
+
+    tipo  ir al estado 22
+
+
+estado 11
+
+    0 $accept: inicio $end .
+
+    $default  aceptar
+
+
+estado 12
+
+    2 listainstrucciones: listainstrucciones instruccion .
+
+    $default  reduce usando la regla 2 (listainstrucciones)
+
+
+estado 13
+
+   14 expr: ENTERO .
+
+    $default  reduce usando la regla 14 (expr)
+
+
+estado 14
+
+    7 instruccion: ID IGUAL expr .
+
+    $default  reduce usando la regla 7 (instruccion)
+
+
+estado 15
+
+    8 instruccion: ID DOSPUNTOS_IGUAL expr .
+
+    $default  reduce usando la regla 8 (instruccion)
+
+
+estado 16
+
+    4 instruccion: PRINTLN PAR_ABRE expr . PAR_CIERRA
+
+    PAR_CIERRA  desplazar e ir al estado 23
+
+
+estado 17
+
+    9 tipo: TIPO_INT .
+
+    $default  reduce usando la regla 9 (tipo)
+
+
+estado 18
+
+   10 tipo: TIPO_FLOAT .
+
+    $default  reduce usando la regla 10 (tipo)
+
+
+estado 19
+
+   11 tipo: TIPO_STRING .
+
+    $default  reduce usando la regla 11 (tipo)
+
+
+estado 20
+
+   12 tipo: TIPO_BOOL .
+
+    $default  reduce usando la regla 12 (tipo)
+
+
+estado 21
+
+   13 tipo: TIPO_RUNE .
+
+    $default  reduce usando la regla 13 (tipo)
+
+
+estado 22
+
+    5 instruccion: VAR ID tipo .
+    6            | VAR ID tipo . IGUAL expr
+
+    IGUAL  desplazar e ir al estado 24
+
+    $default  reduce usando la regla 5 (instruccion)
+
+
+estado 23
+
+    4 instruccion: PRINTLN PAR_ABRE expr PAR_CIERRA .
+
+    $default  reduce usando la regla 4 (instruccion)
+
+
+estado 24
+
+    6 instruccion: VAR ID tipo IGUAL . expr
+
+    ENTERO  desplazar e ir al estado 13
+
+    expr  ir al estado 25
+
+
+estado 25
+
+    6 instruccion: VAR ID tipo IGUAL expr .
+
+    $default  reduce usando la regla 6 (instruccion)
