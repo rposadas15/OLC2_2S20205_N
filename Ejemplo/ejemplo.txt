@@ -1,0 +1,11 @@
+var x int = 10
+var y float64 = 3.14
+var mensaje string = "Hola Mundo"
+
+fmt.Println(x)
+fmt.Println(y)
+fmt.Println(mensaje)
+
+if (x > 5) then
+    fmt.Println("x es mayor que 5")
+end if
