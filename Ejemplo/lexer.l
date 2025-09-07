@@ -1,12 +1,24 @@
 %{
+
 #include "parser.tab.h"
 #include <string.h>
 #include <stdlib.h>
+#include "errors.h"
+
+int yycolumn = 1;
+
+%option noyywrap yylineno
+
+#define YY_USER_ACTION do { 
+  yycolumn += yyleng; 
+} while(0)
+
 %}
 
 %%
 
-[ \t\r\n]+          ;
+[ \t\r]+           ;              
+\n                 { yylineno++; yycolumn = 1; }   
 "var"               { return VAR; }
 "fmt.Println"       { return PRINT; }
 "if"                { return IF; }
@@ -38,7 +50,11 @@
 "true"|"false"      { yylval.str = strdup(yytext); return BOOL; }
 [a-zA-Z_][a-zA-Z0-9_]* { yylval.str = strdup(yytext); return PALABRA; }
 
-.                   { /* ignorar desconocidos */ }
+.                   {
+    /* retrocede 1 columna porque YY_USER_ACTION ya la avanzó en 'yyleng' */
+    err_report(ERR_LEX, yylineno, yycolumn - (int)yyleng, "carácter no reconocido '%s'", yytext);
+    /* no retornamos token; continuamos para intentar seguir */
+}
 
 %%
 

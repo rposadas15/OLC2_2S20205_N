@@ -9,6 +9,7 @@ static struct ASTNode* make_node(const char* kind, const char* value, struct AST
     n->value = value ? strdup(value) : NULL;
     n->left = left;
     n->right = right;
+    n->loc.first_line = n->loc.first_column = n->loc.last_line = n->loc.last_column = 0;
     return n;
 }
 

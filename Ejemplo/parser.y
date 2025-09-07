@@ -2,12 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ast.h"
+#include "errors.h"
 
 struct ASTNode* root = NULL;
 
 int yylex(void);
 void yyerror(const char *s);
 %}
+
+%locations
+%define parse.error detailed
 
 %union {
     char* str;
@@ -49,15 +53,19 @@ print: PRINT PARENTESIS_ABRE expr PARENTESIS_CIERRA
      ;
 
 variables: VAR PALABRA tipo
-             { $$ = ast_var_decl($2, $3, NULL); }
+             { $$ = ast_var_decl($2, $3, NULL);
+               ast_set_loc($$, @$.first_line, @$.first_column, @$.last_line, @$.last_column); }
          | VAR PALABRA tipo IGUAL expr
-             { $$ = ast_var_decl($2, $3, $5); }
+             { $$ = ast_var_decl($2, $3, $5);
+               ast_set_loc($$, @$.first_line, @$.first_column, @$.last_line, @$.last_column); }
          ;
 
 asignacion: PALABRA IGUAL expr
-              { $$ = ast_assign($1, $3); }
+             { $$ = ast_assign($1, $3);
+               ast_set_loc($$, @$.first_line, @$.first_column, @$.last_line, @$.last_column); }
           | PALABRA DOSPUNTOS_IGUAL expr
-              { $$ = ast_assign($1, $3); }
+             { $$ = ast_assign($1, $3);
+               ast_set_loc($$, @$.first_line, @$.first_column, @$.last_line, @$.last_column); }
           ;
 
 tipo: TINT      { $$ = ast_type("int"); }
@@ -100,5 +108,8 @@ expr: PARENTESIS_ABRE expr PARENTESIS_CIERRA   { $$ = $2; }
 %%
 
 void yyerror(const char *s) {
-    fprintf(stderr, "Error de sintaxis: %s\n", s);
+    err_report_range(ERR_SYN,
+        yylloc.first_line, yylloc.first_column,
+        yylloc.last_line,  yylloc.last_column,
+        "%s", s);
 }
