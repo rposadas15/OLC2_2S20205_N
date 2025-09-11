@@ -1,0 +1,211 @@
+public class Main {
+
+    
+    // 1.4.5: indexOf para arreglos de primitivos
+    static int indexOf(int[] arr, int value) {
+        for (int i = 0; i < arr.length; i++) if (arr[i] == value) return i;
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int puntos = 0;
+
+        System.out.println("=== Archivo de prueba de arreglos ===");
+
+        // 1.4.1 Creación de arreglos (obligatorio) – 3 pts
+        System.out.println("==== 1.4.1 Creación de arreglos (obligatorio) ====");
+        int puntosCreacion = 0;
+        System.out.println("Creación con literales:");
+        int[] numeros = new int[]{1, 2, 3, 4, 5};
+        System.out.println("###Validacion Manual");
+        System.out.println("numeros: " + Arrays.toString(numeros));
+        puntosCreacion += 3;
+        System.out.println("OK Creación con literales: correcto");
+
+        // 1.4.2 Acceso de Elementos (obligatorio) – 3 pts
+        System.out.println("\n==== 1.4.2 Acceso de Elementos (obligatorio) ====");
+        int puntosAcceso = 0;
+
+        System.out.println("Acceso por índice:");
+        int primerElemento = numeros[0];
+        System.out.println("Primer elemento: " + primerElemento);
+        if (primerElemento == 1) {
+            puntosAcceso += 1;
+            System.out.println("OK Acceso por índice: correcto");
+        } else {
+            System.out.println("X Acceso por índice: incorrecto");
+        }
+
+        System.out.println("Acceso fuera de rango:");
+        // System.out.println(numeros[5]); // ! ERROR: descomentar provocaría excepción
+        System.out.println("OK Acceso fuera de rango: correcto");
+
+        System.out.println("\nModificación de elementos:");
+        numeros[0] = 10;
+        System.out.println("numeros después de modificar: " + Arrays.toString(numeros));
+        if (numeros[0] == 10) {
+            puntosAcceso += 2;
+            System.out.println("OK Modificación de elementos: correcto");
+        } else {
+            System.out.println("X Modificación de elementos: incorrecto");
+        }
+
+        // 1.4.3 Array Multidimensional – 4 pts
+        System.out.println("\n==== 1.4.3 Array Multidimensional ====");
+        int puntosMultidimensional = 0;
+
+        System.out.println("Creación de matriz 2D con literales:");
+        int[][] matriz = new int[][]{
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        System.out.println("###Validacion Manual");
+        System.out.println(Arrays.deepToString(matriz));
+        puntosMultidimensional += 2;
+
+        System.out.println("\nMatrices irregulares:");
+        int[][] matrizIrregular = new int[][]{
+            {1, 2, 3, 4},
+            {5, 6},
+            {7, 8, 9}
+        };
+        System.out.println("###Validacion Manual");
+        System.out.println(Arrays.deepToString(matrizIrregular));
+        puntosMultidimensional += 2;
+
+        // 1.4.4 Acceso Array Multidimensional – 4 pts
+        System.out.println("\n==== 1.4.4 Acceso Array Multidimensional ====");
+        int puntosAccesoMultidimensional = 0;
+
+        System.out.println("Acceso a elementos de matriz 2D:");
+        int elemento11 = matriz[0][0];
+        int elemento23 = matriz[1][2];
+        int elemento33 = matriz[2][2];
+        System.out.println("Elemento [0][0]: " + elemento11);
+        System.out.println("Elemento [1][2]: " + elemento23);
+        System.out.println("Elemento [2][2]: " + elemento33);
+        if (elemento11 == 1 && elemento23 == 6 && elemento33 == 9) {
+            puntosAccesoMultidimensional += 1;
+            System.out.println("OK Acceso a elementos de matriz 2D: correcto");
+        } else {
+            System.out.println("X Acceso a elementos de matriz 2D: incorrecto");
+        }
+
+        System.out.println("\nModificación de elementos en matriz 2D:");
+        matriz[0][0] = 100;
+        matriz[1][1] = 500;
+        matriz[2][2] = 900;
+        if (matriz[0][0] == 100 && matriz[1][1] == 500 && matriz[2][2] == 900) {
+            puntosAccesoMultidimensional += 1;
+            System.out.println("OK Modificación de elementos en matriz 2D: correcto");
+        } else {
+            System.out.println("X Modificación de elementos en matriz 2D: incorrecto");
+        }
+
+        System.out.println("\nAcceso a filas completas:");
+        int[] primeraFila = matriz[0];
+        System.out.println("Primera fila de matriz: " + Arrays.toString(primeraFila));
+        if (primeraFila[0] == 100 && primeraFila[1] == 2 && primeraFila[2] == 3) {
+            puntosAccesoMultidimensional += 2;
+            System.out.println("OK Acceso a filas completas: correcto");
+        } else {
+            System.out.println("X Acceso a filas completas: incorrecto");
+        }
+
+        // 1.4.5 Función para encontrar el índice (Array.indexOf) – 3 pts
+        System.out.println("\n==== 1.4.5 Array.indexOf ====");
+        int puntosIndex = 0;
+        int[] base = new int[]{10, 20, 30, 40, 50};
+        int indice1 = indexOf(base, 30);
+        int indice2 = indexOf(base, 60); // no existe -> -1
+        System.out.println("Índice de 30: " + indice1);
+        System.out.println("Índice de 60: " + indice2);
+        if (indice1 == 2 && indice2 == -1) {
+            puntosIndex += 3;
+            System.out.println("OK Array.indexOf: correcto");
+        } else {
+            System.out.println("X Array.indexOf: incorrecto");
+        }
+
+        // 1.4.6 Strings.join – 2 pts
+        System.out.println("\n==== 1.4.6 Strings.join ====");
+        int puntosJoin = 0;
+        String[] palabras = new String[]{"Hola", "mundo", "desde", "Java"};
+        String frase = String.join(" ", palabras);
+        String fraseComas = String.join(", ", palabras);
+        System.out.println("Frase con espacios: " + frase);
+        System.out.println("Frase con comas: " + fraseComas);
+        if (frase.equals("Hola mundo desde Java") &&
+            fraseComas.equals("Hola, mundo, desde, Java")) {
+            puntosJoin += 2;
+            System.out.println("OK Strings.join: correcto");
+        } else {
+            System.out.println("X Strings.join: incorrecto");
+        }
+
+        // 1.4.7 Tamaño de arreglos (length) (obligatorio) – 3 pts
+        System.out.println("\n==== 1.4.7 Tamaño de arreglos (length) (obligatorio) ====");
+        int puntosLen = 0;
+        int longitud1 = base.length;
+        int longitud2 = matrizIrregular.length;
+        int longitud3 = matrizIrregular[1].length;
+        System.out.println("len(base)            = " + longitud1);
+        System.out.println("len(matrizIrregular) = " + longitud2);
+        System.out.println("len(matrizIrregular[1]) = " + longitud3);
+        if (longitud1 == 5 && longitud2 == 3 && longitud3 == 2) {
+            puntosLen += 3;
+            System.out.println("OK length: correcto");
+        } else {
+            System.out.println("X length: incorrecto");
+        }
+
+        // 1.4.8 Función add (obligatorio) – 3 pts
+        System.out.println("\n==== 1.4.8 Función add (obligatorio) ====");
+        int puntosAdd = 0;
+
+        // En Java los arreglos son de tamaño fijo; usamos ArrayList como estructura dinámica
+        ArrayList<Integer> lista = new ArrayList<>(Arrays.asList(1, 2, 3));
+        lista.add(4);
+        System.out.println("add elemento -> " + lista);
+        boolean ok1 = (lista.size() == 4 && lista.get(3) == 4);
+        if (ok1) {
+            puntosAdd += 1;
+            System.out.println("OK add (un elemento)");
+        } else {
+            System.out.println("X add (un elemento)");
+        }
+
+        ArrayList<Integer> otra = new ArrayList<>(Arrays.asList(5);
+        lista.addAll(otra);
+        System.out.println("addAll -> " + lista);
+        boolean ok2 = (lista.size() == 6 && lista.get(4) == 5 && lista.get(5) == 6);
+        if (ok2) {
+            puntosAdd += 2;
+            System.out.println("OK addAll (colección)");
+        } else {
+            System.out.println("X addAll (colección)");
+        }
+
+        // ------- Resumen -------
+        puntos = puntosCreacion + puntosAcceso + puntosMultidimensional
+               + puntosAccesoMultidimensional + puntosIndex + puntosJoin
+               + puntosLen + puntosAdd;
+
+        System.out.println("\n=== Tabla de Resultados ===");
+        System.out.println("+-------------------------------------------+--------+-------+");
+        System.out.println("| Característica                            | Puntos | Total |");
+        System.out.println("+-------------------------------------------+--------+-------+");
+        System.out.println("| 1.4.1 Creación de arreglos                | " + puntosCreacion           + " | 3     |");
+        System.out.println("| 1.4.2 Acceso de Elementos                 | " + puntosAcceso             + " | 3     |");
+        System.out.println("| 1.4.3 Array Multidimensional              | " + puntosMultidimensional   + " | 4     |");
+        System.out.println("| 1.4.4 Acceso Array Multidimensional       | " + puntosAccesoMultidimensional,6) + " | 4     |");
+        System.out.println("| 1.4.5 Array.indexOf                       | " + puntosIndex              + " | 3     |");
+        System.out.println("| 1.4.6 Strings.join                        | " + puntosJoin               + " | 2     |");
+        System.out.println("| 1.4.7 Tamaño de arreglos (length)         | " + puntosLen                + " | 3     |");
+        System.out.println("| 1.4.8 Función add                         | " + puntosAdd                + " | 3     |");
+        System.out.println("+-------------------------------------------+--------+-------+");
+        System.out.println("| TOTAL                                     | " + puntos                   + " | 25    |");
+        System.out.println("+-------------------------------------------+--------+-------+");
+    }
+}
