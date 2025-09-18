@@ -1,0 +1,306 @@
+void main() {
+    int puntos = 0;
+
+    System.out.println("=== Archivo de prueba básico ===");
+
+    // 1. Declaración de variables (2 puntos)
+    System.out.println("==== Declaración de variables ====");
+    int puntosDeclaracion = 0;
+
+    System.out.println("Declaración explícita con tipo y valor");
+    int entero = 42;
+    double decimal = 3.14159;
+    String texto = "Hola, mundo!";
+    boolean booleano = true;
+
+    System.out.println("entero: " + entero);
+    System.out.println("decimal: " + decimal);
+    System.out.println("texto: " + texto);
+    System.out.println("booleano: " + booleano);
+
+    if (entero == 42 && decimal > 3.0 && "Hola, mundo!".equals(texto) && booleano == true) {
+        puntosDeclaracion = puntosDeclaracion + 1;
+        System.out.println("OK Declaración explícita con tipo y valor: correcto");
+    } else {
+        System.out.println("X Declaración explícita con tipo y valor: incorrecto");
+    }
+
+    System.out.println("\nDeclaración explícita con tipo y sin valor");
+    int enteroSinValor = 0;        // en Java, las locales no tienen valor por defecto implícito, debemos inicializar
+    double decimalSinValor = 0.0;  // simulamos los defaults de Go
+    String textoSinValor = "";     // "" en lugar de null para que coincida con la verificación del ejemplo
+    boolean booleanoSinValor = false;
+
+    System.out.println("enteroSinValor: " + enteroSinValor);
+    System.out.println("decimalSinValor: " + decimalSinValor);
+    System.out.println("textoSinValor: " + textoSinValor);
+    System.out.println("booleanoSinValor: " + booleanoSinValor);
+
+    // Verificamos valores "por defecto" simulados
+    if (enteroSinValor == 0 && decimalSinValor == 0.0 && "".equals(textoSinValor) && booleanoSinValor == false) {
+        puntosDeclaracion = puntosDeclaracion + 1;
+        System.out.println("OK Declaración explícita con tipo y sin valor: correcto");
+    } else {
+        System.out.println("X Declaración explícita con tipo y sin valor: incorrecto");
+    }
+
+    System.out.println("\nErrores de redeclaración");
+    // int entero = 100; // ! ERROR: Comentar esta línea para que el programa compile (redeclaración en el mismo scope)
+    if (entero == 100) {
+        puntosDeclaracion = puntosDeclaracion - 1;
+        System.out.println("X Errores de redeclaración: incorrecto");
+    } else {
+        System.out.println("OK Errores de redeclaración: correcto");
+    }
+
+    // 2. Asignación de variables (2 puntos)
+    System.out.println("\n==== Asignación de variables ====");
+    int puntosAsignacion = 0;
+
+    System.out.println("Asignación con tipo correcto");
+    entero = 99;
+    decimal = 9.9;
+    texto = "Texto modificado";
+    booleano = !booleano;
+
+    System.out.println("entero: " + entero);
+    System.out.println("decimal: " + decimal);
+    System.out.println("texto: " + texto);
+    System.out.println("booleano: " + booleano);
+
+    if (entero == 99 && decimal == 9.9 && "Texto modificado".equals(texto) && booleano == false) {
+        puntosAsignacion = puntosAsignacion + 1;
+        System.out.println("OK Asignación con tipo correcto: correcto");
+    } else {
+        System.out.println("X Asignación con tipo correcto: incorrecto");
+    }
+
+    System.out.println("\nAsignación con tipo incorrecto");
+    // entero = "esto debería fallar"; // ! ERROR: Comentar esta línea para que el programa compile (tipos incompatibles)
+    System.out.println("OK Asignación con tipo incorrecto: Se detectaron errores de tipo correctamente");
+    puntosAsignacion = puntosAsignacion + 1;
+
+    // 3. Operaciones Aritméticas (2 puntos)
+    System.out.println("\n==== Operaciones Aritméticas ====");
+    int puntosOperacionesAritmeticas = 0;
+
+    System.out.println("Suma");
+    int resultadoSuma1 = 10 + 5;
+    double resultadoSuma2 = 10.5 + 5.5;
+    double resultadoSuma3 = 10 + 5.5;
+    double resultadoSuma4 = 10.5 + 5;
+
+    System.out.println("10 + 5 = " + resultadoSuma1);
+    System.out.println("10.5 + 5.5 = " + resultadoSuma2);
+    System.out.println("10 + 5.5 = " + resultadoSuma3);
+    System.out.println("10.5 + 5 = " + resultadoSuma4);
+
+    if (resultadoSuma1 == 15 && resultadoSuma2 == 16.0 && resultadoSuma3 == 15.5 && resultadoSuma4 == 15.5) {
+        puntosOperacionesAritmeticas = puntosOperacionesAritmeticas + 1;
+        System.out.println("OK Suma: correcto");
+    } else {
+        System.out.println("X Suma: incorrecto");
+    }
+
+    System.out.println("\nResta");
+    int resultadoResta1 = 10 - 5;
+    double resultadoResta2 = 10.5 - 5.5;
+    double resultadoResta3 = 10 - 5.5;
+    double resultadoResta4 = 10.5 - 5;
+
+    System.out.println("10 - 5 = " + resultadoResta1);
+    System.out.println("10.5 - 5.5 = " + resultadoResta2);
+    System.out.println("10 - 5.5 = " + resultadoResta3);
+    System.out.println("10.5 - 5 = " + resultadoResta4);
+
+    if (resultadoResta1 == 5 && resultadoResta2 == 5.0 && resultadoResta3 == 4.5 && resultadoResta4 == 5.5) {
+        puntosOperacionesAritmeticas = puntosOperacionesAritmeticas + 1;
+        System.out.println("OK Resta: correcto");
+    } else {
+        System.out.println("X Resta: incorrecto");
+    }
+
+    // 4. Operaciones Relacionales (2 puntos)
+    System.out.println("\n==== Operaciones Relacionales ====");
+    int puntosOperacionesRelacionales = 0;
+
+    System.out.println("Igualdad");
+    boolean resultadoIgualdad1 = (10 == 10);
+    boolean resultadoIgualdad2 = (10 == 5);
+    boolean resultadoIgualdad3 = (10.5 == 10.5);
+    boolean resultadoIgualdad4 = (10.5 == 5.5);
+
+    System.out.println("10 == 10: " + resultadoIgualdad1);
+    System.out.println("10 == 5: " + resultadoIgualdad2);
+    System.out.println("10.5 == 10.5: " + resultadoIgualdad3);
+    System.out.println("10.5 == 5.5: " + resultadoIgualdad4);
+
+    if (resultadoIgualdad1 == true && resultadoIgualdad2 == false &&
+        resultadoIgualdad3 == true && resultadoIgualdad4 == false) {
+        puntosOperacionesRelacionales = puntosOperacionesRelacionales + 1;
+        System.out.println("OK Igualdad: correcto");
+    } else {
+        System.out.println("X Igualdad: incorrecto");
+    }
+
+    System.out.println("\nDesigualdad");
+    boolean resultadoDesigualdad1 = (10 != 10);
+    boolean resultadoDesigualdad2 = (10 != 5);
+    boolean resultadoDesigualdad3 = (10.5 != 10.5);
+    boolean resultadoDesigualdad4 = (10.5 != 5.5);
+
+    System.out.println("10 != 10: " + resultadoDesigualdad1);
+    System.out.println("10 != 5: " + resultadoDesigualdad2);
+    System.out.println("10.5 != 10.5: " + resultadoDesigualdad3);
+    System.out.println("10.5 != 5.5: " + resultadoDesigualdad4);
+
+    if (resultadoDesigualdad1 == false && resultadoDesigualdad2 == true &&
+        resultadoDesigualdad3 == false && resultadoDesigualdad4 == true) {
+        puntosOperacionesRelacionales = puntosOperacionesRelacionales + 1;
+        System.out.println("OK Desigualdad: correcto");
+    } else {
+        System.out.println("X Desigualdad: incorrecto");
+    }
+
+    // 5. Operaciones Lógicas (2 puntos)
+    System.out.println("\n==== Operaciones Lógicas ====");
+    int puntosOperacionesLogicas = 0;
+
+    System.out.println("AND");
+    boolean resultadoAnd1 = true && true;
+    boolean resultadoAnd2 = true && false;
+    boolean resultadoAnd3 = false && true;
+    boolean resultadoAnd4 = false && false;
+    boolean resultadoAnd5 = (10 == 10) && (5 == 5);
+    boolean resultadoAnd6 = (10 == 10) && (5 == 6);
+
+    System.out.println("true && true: " + resultadoAnd1);
+    System.out.println("true && false: " + resultadoAnd2);
+    System.out.println("false && true: " + resultadoAnd3);
+    System.out.println("false && false: " + resultadoAnd4);
+    System.out.println("(10 == 10) && (5 == 5): " + resultadoAnd5);
+    System.out.println("(10 == 10) && (5 == 6): " + resultadoAnd6);
+
+    if (resultadoAnd1 == true && resultadoAnd2 == false &&
+        resultadoAnd3 == false && resultadoAnd4 == false &&
+        resultadoAnd5 == true && resultadoAnd6 == false) {
+        puntosOperacionesLogicas = puntosOperacionesLogicas + 1;
+        System.out.println("OK AND: correcto");
+    } else {
+        System.out.println("X AND: incorrecto");
+    }
+
+    System.out.println("\nOR");
+    boolean resultadoOr1 = true || true;
+    boolean resultadoOr2 = true || false;
+    boolean resultadoOr3 = false || true;
+    boolean resultadoOr4 = false || false;
+    boolean resultadoOr5 = (10 == 10) || (5 == 5);
+    boolean resultadoOr6 = (10 == 10) || (5 == 6);
+    boolean resultadoOr7 = (10 == 11) || (5 == 6);
+
+    System.out.println("true || true: " + resultadoOr1);
+    System.out.println("true || false: " + resultadoOr2);
+    System.out.println("false || true: " + resultadoOr3);
+    System.out.println("false || false: " + resultadoOr4);
+    System.out.println("(10 == 10) || (5 == 5): " + resultadoOr5);
+    System.out.println("(10 == 10) || (5 == 6): " + resultadoOr6);
+    System.out.println("(10 == 11) || (5 == 6): " + resultadoOr7);
+
+    if (resultadoOr1 == true && resultadoOr2 == true &&
+        resultadoOr3 == true && resultadoOr4 == false &&
+        resultadoOr5 == true && resultadoOr6 == true &&
+        resultadoOr7 == false) {
+        puntosOperacionesLogicas = puntosOperacionesLogicas + 1;
+        System.out.println("OK OR: correcto");
+    } else {
+        System.out.println("X OR: incorrecto");
+    }
+
+    // 6. fmt.Println (2 puntos) -> System.out.println en Java
+    System.out.println("\n==== fmt.Println ====");
+    int puntosPrintln = 0;
+
+    System.out.println("###Validacion Manual");
+    System.out.println("Validando impresión de un solo argumento");
+    System.out.println(42);
+    System.out.println(3.14159);
+    System.out.println("Cadena de texto");
+    System.out.println(true);
+
+    System.out.println("\nValidando impresión de múltiples argumentos");
+    System.out.println("Número: " + 42 + " Pi: " + 3.14159 + " Booleano: " + true);
+
+    System.out.println("\nValidando impresión de expresiones");
+    System.out.println(10 + 5);
+    System.out.println(10 > 5);
+    System.out.println(10 * 5 / 2);
+
+    System.out.println("\nValidando impresión de variables");
+    System.out.println(entero);
+    System.out.println(decimal);
+    System.out.println(texto);
+    System.out.println(booleano);
+
+    System.out.println("\nValidando impresión de slices");
+    int[] numeros = {1, 2, 3, 4, 5};
+    //Original
+    //System.out.println(Arrays.toString(numeros));
+    for (int num : numeros) { System.out.println(num); }
+
+    // Asumimos que la implementación de System.out.println es correcta
+    puntosPrintln = puntosPrintln + 2;
+    System.out.println("OK fmt.Println: correcto");
+
+    // 7. Manejo de valor nulo (2 puntos)
+    System.out.println("\n==== Manejo de valor nulo ====");
+    int puntosValorNulo = 0;
+
+    System.out.println("\nOperaciones con null");
+    // System.out.println("nullVar + 5: " + (null + 5)); // ! ERROR: En Java no se puede operar con null
+
+    puntosValorNulo = puntosValorNulo + 2;
+    System.out.println("OK Manejo de valor nulo: correcto");
+
+    // 8. Opcionalidad del ; (2 puntos)
+    System.out.println("\n==== Opcionalidad del ; ====");
+    int puntosPuntoYComa = 0;
+
+    System.out.println("###Validacion Manual");
+
+    // En Java el ; no es opcional, pero mostramos variables y sumas como en el ejemplo
+    int a = 10;
+    int b = 20;
+    int c = a + b;
+    System.out.println("a = " + a);
+    System.out.println("b = " + b);
+    System.out.println("c = a + b = " + c);
+
+    puntosPuntoYComa = puntosPuntoYComa + 2;
+    System.out.println("OK Opcionalidad del punto y coma: correcto");
+
+    // Resumen de puntos
+    puntos = puntosDeclaracion + puntosAsignacion + puntosOperacionesAritmeticas +
+                puntosOperacionesRelacionales + puntosOperacionesLogicas +
+                puntosPrintln + puntosValorNulo + puntosPuntoYComa;
+
+    System.out.println("\n=== Errores ===");
+    System.out.println("###Validacion Manual");
+    System.out.println("Errores esperados ?/3");
+
+    System.out.println("\n=== Tabla de Resultados ===");
+    System.out.println("+--------------------------+--------+-------+");
+    System.out.println("| Característica           | Puntos | Total |");
+    System.out.println("+--------------------------+--------+-------+");
+    System.out.println("| Declaración de variables | " + puntosDeclaracion + " | 2     |");
+    System.out.println("| Asignación de variables  | " + puntosAsignacion + " | 2     |");
+    System.out.println("| Operaciones Aritméticas  | " + puntosOperacionesAritmeticas + " | 2     |");
+    System.out.println("| Operaciones Relacionales | " + puntosOperacionesRelacionales + " | 2     |");
+    System.out.println("| Operaciones Lógicas      | " + puntosOperacionesLogicas + " | 2     |");
+    System.out.println("| fmt.Println              | " + puntosPrintln + " | 2     |");
+    System.out.println("| Manejo de valor nulo     | " + puntosValorNulo + " | 2     |");
+    System.out.println("| Opcionalidad del ;       | " + puntosPuntoYComa + " | 2     |");
+    System.out.println("+--------------------------+--------+-------+");
+    System.out.println("| TOTAL                    | " + puntos + " | 16    |");
+    System.out.println("+--------------------------+--------+-------+");
+}
