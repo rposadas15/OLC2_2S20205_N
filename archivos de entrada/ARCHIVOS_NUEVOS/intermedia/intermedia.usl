@@ -1,0 +1,668 @@
+public static void main() {
+    System.out.println("=== SISTEMA DE GESTION DE NOTAS INDIVIDUAL ===");
+    
+    String estudiante1 = "Ana";
+    String estudiante2 = "Luis"; 
+    String estudiante3 = "Maria";
+    String estudiante4 = "Carlos";
+    String estudiante5 = "Sofia";
+    
+    int nota1 = 85;
+    int nota2 = 92;
+    int nota3 = 78;
+    int nota4 = 95;
+    int nota5 = 88;
+    
+    int edad1 = 20;
+    int edad2 = 19;
+    int edad3 = 21;
+    int edad4 = 20;
+    int edad5 = 22;
+    
+    System.out.println("Procesando 5 estudiantes individuales");
+    
+    // IF / IF ELSE / ELSE / ELSE IF
+    System.out.println("\n--- EVALUACION CON IF/ELSE ---");
+    
+    // Evaluacion estudiante 1
+    System.out.println("Evaluando: " + estudiante1);
+    if (nota1 >= 95) {
+        System.out.println("Clasificacion: SOBRESALIENTE");
+    } else if (nota1 >= 85) {
+        System.out.println("Clasificacion: NOTABLE");
+    } else if (nota1 >= 75) {
+        System.out.println("Clasificacion: BIEN");
+    } else if (nota1 >= 65) {
+        System.out.println("Clasificacion: SUFICIENTE");
+    } else {
+        System.out.println("Clasificacion: INSUFICIENTE");
+    }
+    
+    // if simple
+    if (edad1 >= 21) {
+        System.out.println("Estado: Mayor de edad completa");
+    }
+    
+    // if-else simple
+    if (nota1 >= 90) {
+        System.out.println("Resultado: Apto para beca");
+    } else {
+        System.out.println("Resultado: No apto para beca");
+    }
+    
+    // Evaluacion estudiante 2
+    System.out.println("\nEvaluando: " + estudiante2);
+    if (nota2 >= 95) {
+        System.out.println("Clasificacion: SOBRESALIENTE");
+    } else if (nota2 >= 85) {
+        System.out.println("Clasificacion: NOTABLE");
+    } else {
+        System.out.println("Clasificacion: REGULAR");
+    }
+    
+    if (nota2 >= 90) {
+        System.out.println("Resultado: Apto para beca");
+    } else {
+        System.out.println("Resultado: No apto para beca");
+    }
+    
+    // Evaluacion estudiante 3
+    System.out.println("\nEvaluando: " + estudiante3);
+    if (nota3 >= 85) {
+        System.out.println("Clasificacion: NOTABLE");
+    } else if (nota3 >= 75) {
+        System.out.println("Clasificacion: BIEN");
+    } else {
+        System.out.println("Clasificacion: REGULAR");
+    }
+    
+    // WHILE
+    System.out.println("\n--- PROCESAMIENTO CON WHILE ---");
+    
+    // Buscar estudiantes con nota alta usando while
+    int estudianteActual = 1;
+    int estudiantesDestacados = 0;
+    System.out.println("Buscando estudiantes con nota >= 90:");
+    
+    while (estudianteActual <= 5) {
+        String nombreActual = "";
+        int notaActual = 0;
+        
+        if (estudianteActual == 1) {
+            nombreActual = estudiante1;
+            notaActual = nota1;
+        } else if (estudianteActual == 2) {
+            nombreActual = estudiante2;
+            notaActual = nota2;
+        } else if (estudianteActual == 3) {
+            nombreActual = estudiante3;
+            notaActual = nota3;
+        } else if (estudianteActual == 4) {
+            nombreActual = estudiante4;
+            notaActual = nota4;
+        } else if (estudianteActual == 5) {
+            nombreActual = estudiante5;
+            notaActual = nota5;
+        }
+        
+        System.out.println("Revisando estudiante " + String.valueOf(estudianteActual) + ": " + nombreActual);
+        
+        if (notaActual >= 90) {
+            System.out.println("Destacado encontrado: " + nombreActual + " con " + String.valueOf(notaActual));
+            estudiantesDestacados++;
+        }
+        
+        estudianteActual++;
+    }
+    
+    System.out.println("Total de estudiantes destacados: " + String.valueOf(estudiantesDestacados));
+    
+    // Contador regresivo con while
+    System.out.println("\nContador regresivo:");
+    int contador = 5;
+    while (contador > 0) {
+        System.out.println("Quedan: " + String.valueOf(contador) + " estudiantes por procesar");
+        contador--;
+    }
+    
+    // While con condicion compleja
+    System.out.println("\nBusqueda de estudiante joven con buena nota:");
+    int indice = 1;
+    while (indice <= 5 && estudiantesDestacados > 0) {
+        String nombre = "";
+        int nota = 0;
+        int edad = 0;
+        
+        if (indice == 1) {
+            nombre = estudiante1;
+            nota = nota1;
+            edad = edad1;
+        } else if (indice == 2) {
+            nombre = estudiante2;
+            nota = nota2;
+            edad = edad2;
+        } else if (indice == 3) {
+            nombre = estudiante3;
+            nota = nota3;
+            edad = edad3;
+        } else if (indice == 4) {
+            nombre = estudiante4;
+            nota = nota4;
+            edad = edad4;
+        } else if (indice == 5) {
+            nombre = estudiante5;
+            nota = nota5;
+            edad = edad5;
+        }
+        
+        if (nota >= 90 && edad <= 20) {
+            System.out.println("Estudiante joven destacado: " + nombre + " (Edad: " + String.valueOf(edad) + ", Nota: " + String.valueOf(nota) + ")");
+        }
+        
+        indice++;
+    }
+    
+    // FOR CLASICO
+    System.out.println("\n--- PROCESAMIENTO CON FOR CLASICO ---");
+    
+    // For basico
+    System.out.println("Listado numerado:");
+    for (int i = 1; i <= 5; i++) {
+        String nombre = "";
+        int nota = 0;
+        
+        if (i == 1) {
+            nombre = estudiante1;
+            nota = nota1;
+        } else if (i == 2) {
+            nombre = estudiante2;
+            nota = nota2;
+        } else if (i == 3) {
+            nombre = estudiante3;
+            nota = nota3;
+        } else if (i == 4) {
+            nombre = estudiante4;
+            nota = nota4;
+        } else if (i == 5) {
+            nombre = estudiante5;
+            nota = nota5;
+        }
+        
+        System.out.println(String.valueOf(i) + ". " + nombre + " - Nota: " + String.valueOf(nota));
+    }
+    
+    // For con decremento
+    System.out.println("\nProceso inverso:");
+    for (int i = 5; i >= 1; i--) {
+        System.out.println("Procesando posicion: " + String.valueOf(i));
+    }
+    
+    // For anidado
+    System.out.println("\nTabla de multiplicar (1-3 x 1-4):");
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= 4; j++) {
+            int resultado = i * j;
+            System.out.println(String.valueOf(i) + " x " + String.valueOf(j) + " = " + String.valueOf(resultado));
+        }
+    }
+    
+    // FOREACH
+    System.out.println("\n--- FOREACH CON ARRAY SIMPLE ---");
+    
+    // Array simple solo para forEach
+    int[] notasParaForeach = {85, 92, 78, 95, 88};
+    
+    System.out.println("Procesando notas con forEach:");
+    int suma = 0;
+    int contadorNotas = 0;
+    
+    for (int nota : notasParaForeach) {
+        contadorNotas++;
+        suma += nota;
+        System.out.println("Nota " + String.valueOf(contadorNotas) + ": " + String.valueOf(nota));
+    }
+    
+    double promedio = suma / 5.0;
+    System.out.println("Promedio calculado con forEach: " + String.valueOf(promedio));
+    
+    // ForEach para contar categorias
+    System.out.println("\nConteo de categorias con forEach:");
+    int notasAltas = 0;
+    int notasBajas = 0;
+    
+    for (int nota : notasParaForeach) {
+        if (nota >= 90) {
+            notasAltas++;
+            System.out.println("Nota alta encontrada: " + String.valueOf(nota));
+        } else if (nota < 80) {
+            notasBajas++;
+            System.out.println("Nota baja encontrada: " + String.valueOf(nota));
+        }
+    }
+    
+    System.out.println("Total notas altas (>=90): " + String.valueOf(notasAltas));
+    System.out.println("Total notas bajas (<80): " + String.valueOf(notasBajas));
+    
+    // SWITCH/CASE
+    System.out.println("\n--- CLASIFICACION CON SWITCH/CASE ---");
+    
+    // Switch para nota1
+    System.out.println("Analizando: " + estudiante1 + " (Nota: " + String.valueOf(nota1) + ")");
+    int categoria1 = nota1 / 10;
+    switch (categoria1) {
+        case 10:
+        case 9:
+            System.out.println("Categoria: EXCELENTE");
+            System.out.println("Accion: Mantener nivel");
+            break;
+        case 8:
+            System.out.println("Categoria: MUY BUENO");
+            System.out.println("Accion: Continuar esfuerzo");
+            break;
+        case 7:
+            System.out.println("Categoria: BUENO");
+            System.out.println("Accion: Mejorar tecnicas");
+            break;
+        case 6:
+            System.out.println("Categoria: SUFICIENTE");
+            System.out.println("Accion: Reforzar conocimientos");
+            break;
+        default:
+            System.out.println("Categoria: INSUFICIENTE");
+            System.out.println("Accion: Apoyo urgente");
+            break;
+    }
+    
+    // Switch para nota2
+    System.out.println("\nAnalizando: " + estudiante2 + " (Nota: " + String.valueOf(nota2) + ")");
+    int categoria2 = nota2 / 10;
+    switch (categoria2) {
+        case 10:
+        case 9:
+            System.out.println("Categoria: EXCELENTE");
+            break;
+        case 8:
+            System.out.println("Categoria: MUY BUENO");
+            break;
+        case 7:
+            System.out.println("Categoria: BUENO");
+            break;
+        default:
+            System.out.println("Categoria: REGULAR");
+            break;
+    }
+    
+    System.out.println("\nAnalisis por edad:");
+    switch (edad1) {
+        case 18:
+        case 19:
+            System.out.println(estudiante1 + " - Categoria: Muy joven");
+            break;
+        case 20:
+        case 21:
+            System.out.println(estudiante1 + " - Categoria: Joven adulto");
+            break;
+        case 22:
+        case 23:
+            System.out.println(estudiante1 + " - Categoria: Adulto joven");
+            break;
+        default:
+            System.out.println(estudiante1 + " - Categoria: Adulto");
+            break;
+    }
+    
+    // BREAK
+    System.out.println("\n--- DEMOSTRACION DE BREAK ---");
+    
+    // Break en for
+    System.out.println("Busqueda con break (primera nota > 90):");
+    for (int i = 1; i <= 5; i++) {
+        int notaActual = 0;
+        String nombreActual = "";
+        
+        if (i == 1) {
+            notaActual = nota1;
+            nombreActual = estudiante1;
+        } else if (i == 2) {
+            notaActual = nota2;
+            nombreActual = estudiante2;
+        } else if (i == 3) {
+            notaActual = nota3;
+            nombreActual = estudiante3;
+        } else if (i == 4) {
+            notaActual = nota4;
+            nombreActual = estudiante4;
+        } else if (i == 5) {
+            notaActual = nota5;
+            nombreActual = estudiante5;
+        }
+        
+        System.out.println("Verificando: " + nombreActual + " - " + String.valueOf(notaActual));
+        
+        if (notaActual > 90) {
+            System.out.println("Encontrado! " + nombreActual + " supera 90 puntos");
+            break; // Salir del bucle
+        }
+    }
+    
+    // Break en while
+    System.out.println("\nBusqueda limitada con while y break:");
+    int posicion = 1;
+    while (true) {
+        if (posicion > 3) {
+            System.out.println("Limite alcanzado, usando break para salir");
+            break;
+        }
+        System.out.println("Procesando posicion: " + String.valueOf(posicion));
+        posicion++;
+    }
+    
+    // Break en for anidado
+    System.out.println("\nBreak en for anidado:");
+    for (int i = 1; i <= 3; i++) {
+        System.out.println("Fila " + String.valueOf(i) + ":");
+        for (int j = 1; j <= 5; j++) {
+            if (j == 3) {
+                System.out.println("  Break en columna 3");
+                break; // Sale del for interno
+            }
+            System.out.println("  Columna " + String.valueOf(j));
+        }
+    }
+    
+    // CONTINUE
+    System.out.println("\n--- DEMOSTRACION DE CONTINUE ---");
+    
+    // Continue en for
+    System.out.println("Procesando solo notas pares (con continue):");
+    for (int i = 1; i <= 5; i++) {
+        int notaActual = 0;
+        String nombreActual = "";
+        
+        if (i == 1) {
+            notaActual = nota1;
+            nombreActual = estudiante1;
+        } else if (i == 2) {
+            notaActual = nota2;
+            nombreActual = estudiante2;
+        } else if (i == 3) {
+            notaActual = nota3;
+            nombreActual = estudiante3;
+        } else if (i == 4) {
+            notaActual = nota4;
+            nombreActual = estudiante4;
+        } else if (i == 5) {
+            notaActual = nota5;
+            nombreActual = estudiante5;
+        }
+        
+        if (notaActual % 2 != 0) {
+            System.out.println("Saltando " + nombreActual + " (nota impar: " + String.valueOf(notaActual) + ")");
+            continue; // Saltar estudiantes con notas impares
+        }
+        
+        System.out.println("Procesando " + nombreActual + " (nota par: " + String.valueOf(notaActual) + ")");
+    }
+    
+    // Continue en while
+    System.out.println("\nConteo con continue (saltando multiplos de 3):");
+    int numero = 0;
+    while (numero < 10) {
+        numero++;
+        if (numero % 3 == 0) {
+            System.out.println("Saltando multiplo de 3: " + String.valueOf(numero));
+            continue;
+        }
+        System.out.println("Numero procesado: " + String.valueOf(numero));
+    }
+    
+    // Continue en for anidado
+    System.out.println("\nMatriz con continue anidado:");
+    for (int fila = 1; fila <= 3; fila++) {
+        for (int columna = 1; columna <= 4; columna++) {
+            if (columna == 2) {
+                continue; // Saltar columna 2
+            }
+            System.out.println("Celda [" + String.valueOf(fila) + "," + String.valueOf(columna) + "]");
+        }
+    }
+    
+    // Continue con condicion compleja
+    System.out.println("\nProcesamiento selectivo con continue:");
+    for (int pos = 1; pos <= 5; pos++) {
+        int notaPos = 0;
+        int edadPos = 0;
+        String nombrePos = "";
+        
+        if (pos == 1) {
+            notaPos = nota1;
+            edadPos = edad1;
+            nombrePos = estudiante1;
+        } else if (pos == 2) {
+            notaPos = nota2;
+            edadPos = edad2;
+            nombrePos = estudiante2;
+        } else if (pos == 3) {
+            notaPos = nota3;
+            edadPos = edad3;
+            nombrePos = estudiante3;
+        } else if (pos == 4) {
+            notaPos = nota4;
+            edadPos = edad4;
+            nombrePos = estudiante4;
+        } else if (pos == 5) {
+            notaPos = nota5;
+            edadPos = edad5;
+            nombrePos = estudiante5;
+        }
+        
+        if (notaPos < 80 || edadPos > 21) {
+            System.out.println("Saltando " + nombrePos + " (no cumple criterios)");
+            continue;
+        }
+        
+        System.out.println("Procesando " + nombrePos + " (cumple criterios: nota=" + String.valueOf(notaPos) + ", edad=" + String.valueOf(edadPos) + ")");
+    }
+    
+    // RESUMEN FINAL
+    System.out.println("\n--- RESUMEN FINAL ---");
+    
+    // Calcular estadisticas finales usando variables individuales
+    int notaMaxima = nota1;
+    String estudianteMejor = estudiante1;
+    
+    if (nota2 > notaMaxima) {
+        notaMaxima = nota2;
+        estudianteMejor = estudiante2;
+    }
+    if (nota3 > notaMaxima) {
+        notaMaxima = nota3;
+        estudianteMejor = estudiante3;
+    }
+    if (nota4 > notaMaxima) {
+        notaMaxima = nota4;
+        estudianteMejor = estudiante4;
+    }
+    if (nota5 > notaMaxima) {
+        notaMaxima = nota5;
+        estudianteMejor = estudiante5;
+    }
+    
+    int sumaTotal = nota1 + nota2 + nota3 + nota4 + nota5;
+    double promedioFinal = sumaTotal / 5.0;
+    
+    System.out.println("Mejor estudiante: " + estudianteMejor + " con " + String.valueOf(notaMaxima));
+    System.out.println("Promedio general: " + String.valueOf(promedioFinal));
+    
+    System.out.println("\n=== PROCESAMIENTO COMPLETADO ===");
+}
+
+/*
+===================================
+SALIDA ESPERADA:
+===================================
+
+=== SISTEMA DE GESTION DE NOTAS INDIVIDUAL ===
+Procesando 5 estudiantes individuales
+
+--- EVALUACION CON IF/ELSE ---
+Evaluando: Ana
+Clasificacion: NOTABLE
+Resultado: No apto para beca
+
+Evaluando: Luis
+Clasificacion: NOTABLE
+Resultado: Apto para beca
+
+Evaluando: Maria
+Clasificacion: BIEN
+
+--- PROCESAMIENTO CON WHILE ---
+Buscando estudiantes con nota >= 90:
+Revisando estudiante 1: Ana
+Revisando estudiante 2: Luis
+Destacado encontrado: Luis con 92
+Revisando estudiante 3: Maria
+Revisando estudiante 4: Carlos
+Destacado encontrado: Carlos con 95
+Revisando estudiante 5: Sofia
+Total de estudiantes destacados: 2
+
+Contador regresivo:
+Quedan: 5 estudiantes por procesar
+Quedan: 4 estudiantes por procesar
+Quedan: 3 estudiantes por procesar
+Quedan: 2 estudiantes por procesar
+Quedan: 1 estudiantes por procesar
+
+Busqueda de estudiante joven con buena nota:
+Estudiante joven destacado: Luis (Edad: 19, Nota: 92)
+Estudiante joven destacado: Carlos (Edad: 20, Nota: 95)
+
+--- PROCESAMIENTO CON FOR CLASICO ---
+Listado numerado:
+1. Ana - Nota: 85
+2. Luis - Nota: 92
+3. Maria - Nota: 78
+4. Carlos - Nota: 95
+5. Sofia - Nota: 88
+
+Proceso inverso:
+Procesando posicion: 5
+Procesando posicion: 4
+Procesando posicion: 3
+Procesando posicion: 2
+Procesando posicion: 1
+
+Tabla de multiplicar (1-3 x 1-4):
+1 x 1 = 1
+1 x 2 = 2
+1 x 3 = 3
+1 x 4 = 4
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+2 x 4 = 8
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+3 x 4 = 12
+
+--- FOREACH CON ARRAY SIMPLE ---
+Procesando notas con forEach:
+Nota 1: 85
+Nota 2: 92
+Nota 3: 78
+Nota 4: 95
+Nota 5: 88
+Promedio calculado con forEach: 87.6
+
+Conteo de categorias con forEach:
+Nota alta encontrada: 92
+Nota baja encontrada: 78
+Nota alta encontrada: 95
+Total notas altas (>=90): 2
+Total notas bajas (<80): 1
+
+--- CLASIFICACION CON SWITCH/CASE ---
+Analizando: Ana (Nota: 85)
+Categoria: MUY BUENO
+Accion: Continuar esfuerzo
+
+Analizando: Luis (Nota: 92)
+Categoria: EXCELENTE
+
+Analisis por edad:
+Ana - Categoria: Joven adulto
+
+--- DEMOSTRACION DE BREAK ---
+Busqueda con break (primera nota > 90):
+Verificando: Ana - 85
+Verificando: Luis - 92
+Encontrado! Luis supera 90 puntos
+
+Busqueda limitada con while y break:
+Procesando posicion: 1
+Procesando posicion: 2
+Procesando posicion: 3
+Limite alcanzado, usando break para salir
+
+Break en for anidado:
+Fila 1:
+  Columna 1
+  Columna 2
+  Break en columna 3
+Fila 2:
+  Columna 1
+  Columna 2
+  Break en columna 3
+Fila 3:
+  Columna 1
+  Columna 2
+  Break en columna 3
+
+--- DEMOSTRACION DE CONTINUE ---
+Procesando solo notas pares (con continue):
+Saltando Ana (nota impar: 85)
+Procesando Luis (nota par: 92)
+Procesando Maria (nota par: 78)
+Saltando Carlos (nota impar: 95)
+Procesando Sofia (nota par: 88)
+
+Conteo con continue (saltando multiplos de 3):
+Numero procesado: 1
+Numero procesado: 2
+Saltando multiplo de 3: 3
+Numero procesado: 4
+Numero procesado: 5
+Saltando multiplo de 3: 6
+Numero procesado: 7
+Numero procesado: 8
+Saltando multiplo de 3: 9
+Numero procesado: 10
+
+Matriz con continue anidado:
+Celda [1,1]
+Celda [1,3]
+Celda [1,4]
+Celda [2,1]
+Celda [2,3]
+Celda [2,4]
+Celda [3,1]
+Celda [3,3]
+Celda [3,4]
+
+Procesamiento selectivo con continue:
+Procesando Ana (cumple criterios: nota=85, edad=20)
+Procesando Luis (cumple criterios: nota=92, edad=19)
+Saltando Maria (no cumple criterios)
+Procesando Carlos (cumple criterios: nota=95, edad=20)
+Saltando Sofia (no cumple criterios)
+
+--- RESUMEN FINAL ---
+Mejor estudiante: Carlos con 95
+Promedio general: 87.6
+
+=== PROCESAMIENTO COMPLETADO ===
+
+*/

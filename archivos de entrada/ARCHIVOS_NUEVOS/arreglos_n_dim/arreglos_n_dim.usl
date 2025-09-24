@@ -1,0 +1,568 @@
+public static void main() {
+    System.out.println("=== SISTEMA DE ANALISIS DE DATOS ACADEMICOS ===");
+    
+    // Declaración dos dimensiones
+    System.out.println("\n--- DECLARACION DE MATRICES 2D ---");
+    
+    // Declaración con inicialización directa
+    int[][] calificacionesPorMateria = {
+        {85, 92, 78, 90},  // Estudiante 1: Mat, Fis, Qui, Bio
+        {90, 88, 85, 93},  // Estudiante 2
+        {78, 82, 90, 87},  // Estudiante 3
+        {95, 91, 88, 94}   // Estudiante 4
+    };
+    
+    // Declaración con dimensiones específicas
+    double[][] promediosPorSemestre = new double[4][6]; // 4 estudiantes, 6 semestres
+    
+    // Matriz para operaciones matemáticas
+    int[][] matrizA = {
+        {3, 2, 1},
+        {1, 4, 2},
+        {2, 1, 3}
+    };
+    
+    int[][] matrizB = {
+        {2, 1, 3},
+        {3, 2, 1},
+        {1, 3, 2}
+    };
+    
+    System.out.println("Matrices 2D declaradas exitosamente:");
+    System.out.println("- calificacionesPorMateria: " + String.valueOf(calificacionesPorMateria.length) + 
+                      " x " + String.valueOf(calificacionesPorMateria[0].length));
+    System.out.println("- promediosPorSemestre: " + String.valueOf(promediosPorSemestre.length) + 
+                      " x " + String.valueOf(promediosPorSemestre[0].length));
+    System.out.println("- matrizA: " + String.valueOf(matrizA.length) + 
+                      " x " + String.valueOf(matrizA[0].length));
+    System.out.println("- matrizB: " + String.valueOf(matrizB.length) + 
+                      " x " + String.valueOf(matrizB[0].length));
+    
+    // Declaración tres dimensiones
+    System.out.println("\n--- DECLARACION DE MATRICES 3D ---");
+    
+    // Cubo de calificaciones: [estudiante][materia][evaluacion]
+    int[][][] evaluacionesDetalladas = new int[4][4][3]; // 4 estudiantes, 4 materias, 3 evaluaciones
+    
+    // Cubo con datos inicializados
+    double[][][] temperaturasPorDia = {
+        { // Semana 1
+            {20.5, 22.1, 25.3}, // Lunes: mañana, tarde, noche
+            {19.8, 21.5, 24.7}, // Martes
+            {21.2, 23.0, 26.1}  // Miércoles
+        },
+        { // Semana 2
+            {18.5, 20.1, 23.3}, // Lunes
+            {17.8, 19.5, 22.7}, // Martes
+            {19.2, 21.0, 24.1}  // Miércoles
+        }
+    };
+    
+    System.out.println("Matrices 3D declaradas exitosamente:");
+    System.out.println("- evaluacionesDetalladas: " + String.valueOf(evaluacionesDetalladas.length) + 
+                      " x " + String.valueOf(evaluacionesDetalladas[0].length) + 
+                      " x " + String.valueOf(evaluacionesDetalladas[0][0].length));
+    System.out.println("- temperaturasPorDia: " + String.valueOf(temperaturasPorDia.length) + 
+                      " x " + String.valueOf(temperaturasPorDia[0].length) + 
+                      " x " + String.valueOf(temperaturasPorDia[0][0].length));
+    
+    // Modificación de un elemento dos dimensiones
+    System.out.println("\n--- MODIFICACION DE ELEMENTOS 2D ---");
+    
+    System.out.println("Calificación original del Estudiante 1 en Física: " + 
+                      String.valueOf(calificacionesPorMateria[0][1]));
+    
+    // Modificar calificaciones específicas
+    calificacionesPorMateria[0][1] = 95; // Estudiante 1, Física
+    calificacionesPorMateria[2][0] = 82; // Estudiante 3, Matemáticas
+    calificacionesPorMateria[3][2] = 90; // Estudiante 4, Química
+    
+    System.out.println("Nueva calificación del Estudiante 1 en Física: " + 
+                      String.valueOf(calificacionesPorMateria[0][1]));
+    System.out.println("Modificaciones adicionales realizadas en otras posiciones");
+    
+    // Llenar matriz de promedios
+    promediosPorSemestre[0][0] = 85.5;
+    promediosPorSemestre[0][1] = 87.2;
+    promediosPorSemestre[0][2] = 89.1;
+    promediosPorSemestre[1][0] = 90.3;
+    promediosPorSemestre[1][1] = 88.7;
+    promediosPorSemestre[1][2] = 91.2;
+    
+    System.out.println("Matriz de promedios por semestre inicializada");
+    
+    // Modificación de un elemento tres dimensiones
+    System.out.println("\n--- MODIFICACION DE ELEMENTOS 3D ---");
+    
+    // Llenar cubo de evaluaciones detalladas
+    // Estudiante 1, Matemáticas, todas las evaluaciones
+    evaluacionesDetalladas[0][0][0] = 88; // Examen 1
+    evaluacionesDetalladas[0][0][1] = 92; // Examen 2
+    evaluacionesDetalladas[0][0][2] = 85; // Proyecto final
+    
+    // Estudiante 2, Física, todas las evaluaciones  
+    evaluacionesDetalladas[1][1][0] = 85;
+    evaluacionesDetalladas[1][1][1] = 90;
+    evaluacionesDetalladas[1][1][2] = 88;
+    
+    // Estudiante 3, Química, todas las evaluaciones
+    evaluacionesDetalladas[2][2][0] = 92;
+    evaluacionesDetalladas[2][2][1] = 87;
+    evaluacionesDetalladas[2][2][2] = 94;
+    
+    // Estudiante 4, Biología, todas las evaluaciones
+    evaluacionesDetalladas[3][3][0] = 96;
+    evaluacionesDetalladas[3][3][1] = 93;
+    evaluacionesDetalladas[3][3][2] = 97;
+    
+    System.out.println("Cubo de evaluaciones detalladas inicializado:");
+    System.out.println("- Estudiante 1, Matemáticas: [" + String.valueOf(evaluacionesDetalladas[0][0][0]) + 
+                      ", " + String.valueOf(evaluacionesDetalladas[0][0][1]) + 
+                      ", " + String.valueOf(evaluacionesDetalladas[0][0][2]) + "]");
+    System.out.println("- Estudiante 4, Biología: [" + String.valueOf(evaluacionesDetalladas[3][3][0]) + 
+                      ", " + String.valueOf(evaluacionesDetalladas[3][3][1]) + 
+                      ", " + String.valueOf(evaluacionesDetalladas[3][3][2]) + "]");
+    
+    // Modificar temperaturas específicas
+    temperaturasPorDia[0][1][2] = 25.5; // Semana 1, Martes, Noche
+    temperaturasPorDia[1][0][1] = 21.8; // Semana 2, Lunes, Tarde
+    
+    System.out.println("Temperaturas específicas modificadas");
+    
+    // Acceso a elementos dos dimensiones
+    System.out.println("\n--- ACCESO A ELEMENTOS 2D ---");
+    
+    String[] materias = {"Matemáticas", "Física", "Química", "Biología"};
+    String[] estudiantes = {"Ana", "Luis", "María", "Carlos"};
+    
+    System.out.println("Análisis de calificaciones por estudiante:");
+    for (int i = 0; i < calificacionesPorMateria.length; i++) {
+        System.out.println("Estudiante " + estudiantes[i] + ":");
+        int suma = 0;
+        for (int j = 0; j < calificacionesPorMateria[i].length; j++) {
+            int nota = calificacionesPorMateria[i][j];
+            System.out.println("  " + materias[j] + ": " + String.valueOf(nota));
+            suma += nota;
+        }
+        double promedio = suma / (double) calificacionesPorMateria[i].length;
+        System.out.println("  Promedio: " + String.valueOf(promedio));
+        System.out.println();
+    }
+    
+    // Acceso a elementos específicos
+    System.out.println("Acceso directo a elementos específicos:");
+    System.out.println("Primera calificación (Ana, Matemáticas): " + String.valueOf(calificacionesPorMateria[0][0]));
+    System.out.println("Última calificación (Carlos, Biología): " + 
+                      String.valueOf(calificacionesPorMateria[estudiantes.length-1][materias.length-1]));
+    System.out.println("Elemento central: " + 
+                      String.valueOf(calificacionesPorMateria[estudiantes.length/2][materias.length/2]));
+    
+    // Acceso a elementos tres dimensiones
+    System.out.println("\n--- ACCESO A ELEMENTOS 3D ---");
+    
+    System.out.println("Análisis de evaluaciones detalladas:");
+    String[] tiposEvaluacion = {"Examen 1", "Examen 2", "Proyecto"};
+    
+    for (int estudiante = 0; estudiante < 2; estudiante++) { // Solo primeros 2 estudiantes para brevedad
+        System.out.println("Estudiante " + estudiantes[estudiante] + ":");
+        for (int materia = 0; materia < 2; materia++) { // Solo primeras 2 materias
+            System.out.println("  " + materias[materia] + ":");
+            for (int evaluacion = 0; evaluacion < evaluacionesDetalladas[estudiante][materia].length; evaluacion++) {
+                int nota = evaluacionesDetalladas[estudiante][materia][evaluacion];
+                if (nota > 0) { // Solo mostrar si tiene valor asignado
+                    System.out.println("    " + tiposEvaluacion[evaluacion] + ": " + String.valueOf(nota));
+                }
+            }
+        }
+        System.out.println();
+    }
+    
+    // Análisis de temperaturas
+    System.out.println("Temperaturas registradas:");
+    String[] semanas = {"Semana 1", "Semana 2"};
+    String[] dias = {"Lunes", "Martes", "Miércoles"};
+    String[] periodos = {"Mañana", "Tarde", "Noche"};
+    
+    for (int semana = 0; semana < temperaturasPorDia.length; semana++) {
+        System.out.println(semanas[semana] + ":");
+        for (int dia = 0; dia < temperaturasPorDia[semana].length; dia++) {
+            System.out.println("  " + dias[dia] + ":");
+            for (int periodo = 0; periodo < temperaturasPorDia[semana][dia].length; periodo++) {
+                double temp = temperaturasPorDia[semana][dia][periodo];
+                System.out.println("    " + periodos[periodo] + ": " + String.valueOf(temp) + "°C");
+            }
+        }
+    }
+    
+    // Operaciones con matrices
+    System.out.println("\n--- OPERACIONES CON MATRICES ---");
+    
+    System.out.println("Matriz A:");
+    mostrarMatriz(matrizA);
+    
+    System.out.println("Matriz B:");
+    mostrarMatriz(matrizB);
+    
+    // Suma de matrices
+    int[][] matrizSuma = sumarMatrices(matrizA, matrizB);
+    System.out.println("Suma A + B:");
+    mostrarMatriz(matrizSuma);
+    
+    // Multiplicación de matrices
+    int[][] matrizProducto = multiplicarMatrices(matrizA, matrizB);
+    System.out.println("Producto A * B:");
+    mostrarMatriz(matrizProducto);
+    
+    // Verificar propiedades
+    System.out.println("Verificando operaciones:");
+    System.out.println("- Suma completada correctamente");
+    System.out.println("- Multiplicación completada correctamente");
+    
+    // Transpuesta de matriz
+    System.out.println("\n--- TRANSPUESTA DE MATRIZ ---");
+    
+    // Matriz rectangular para demostrar transpuesta
+    int[][] matrizRectangular = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+    
+    System.out.println("Matriz original (3x4):");
+    mostrarMatriz(matrizRectangular);
+    
+    int[][] matrizTranspuesta = calcularTranspuesta(matrizRectangular);
+    System.out.println("Matriz transpuesta (4x3):");
+    mostrarMatriz(matrizTranspuesta);
+    
+    // Transpuesta de matriz cuadrada
+    System.out.println("Transpuesta de matriz A:");
+    int[][] transpuestaA = calcularTranspuesta(matrizA);
+    mostrarMatriz(transpuestaA);
+    
+    // Verificar propiedad: (A^T)^T = A
+    int[][] dobleTranspuesta = calcularTranspuesta(transpuestaA);
+    System.out.println("Doble transpuesta de A (debe ser igual a A original):");
+    mostrarMatriz(dobleTranspuesta);
+    
+    // Determinante 2x2 y 3x3
+    System.out.println("\n--- CALCULO DE DETERMINANTES ---");
+    
+    // Determinante 2x2
+    int[][] matriz2x2 = {
+        {4, 3},
+        {2, 1}
+    };
+    
+    System.out.println("Matriz 2x2:");
+    mostrarMatriz(matriz2x2);
+    
+    int determinante2x2 = calcularDeterminante2x2(matriz2x2);
+    System.out.println("Determinante 2x2: " + String.valueOf(determinante2x2));
+    
+    // Otro ejemplo 2x2
+    int[][] matriz2x2_2 = {
+        {5, 2},
+        {3, 4}
+    };
+    
+    System.out.println("\nSegunda matriz 2x2:");
+    mostrarMatriz(matriz2x2_2);
+    
+    int det2x2_2 = calcularDeterminante2x2(matriz2x2_2);
+    System.out.println("Determinante 2x2: " + String.valueOf(det2x2_2));
+    
+    // Determinante 3x3
+    System.out.println("\nMatriz A (3x3):");
+    mostrarMatriz(matrizA);
+    
+    int determinante3x3 = calcularDeterminante3x3(matrizA);
+    System.out.println("Determinante 3x3 de matriz A: " + String.valueOf(determinante3x3));
+    
+    // Otra matriz 3x3
+    int[][] matriz3x3_especial = {
+        {2, -1, 3},
+        {1, 0, 1},
+        {1, 2, -1}
+    };
+    
+    System.out.println("\nMatriz especial 3x3:");
+    mostrarMatriz(matriz3x3_especial);
+    
+    int det3x3_especial = calcularDeterminante3x3(matriz3x3_especial);
+    System.out.println("Determinante 3x3: " + String.valueOf(det3x3_especial));
+    
+    System.out.println("\n=== ANALISIS DE DATOS ACADEMICOS COMPLETADO ===");
+}
+
+// Función para mostrar matriz 2D
+void mostrarMatriz(int[][] matriz) {
+    for (int i = 0; i < matriz.length; i++) {
+        System.out.print("  [");
+        for (int j = 0; j < matriz[i].length; j++) {
+            System.out.print(String.valueOf(matriz[i][j]));
+            if (j < matriz[i].length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+    System.out.println();
+}
+
+// Función para sumar matrices
+int[][] sumarMatrices(int[][] a, int[][] b) {
+    int filas = a.length;
+    int columnas = a[0].length;
+    int[][] resultado = new int[filas][columnas];
+    
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            resultado[i][j] = a[i][j] + b[i][j];
+        }
+    }
+    
+    return resultado;
+}
+
+// Función para multiplicar matrices
+int[][] multiplicarMatrices(int[][] a, int[][] b) {
+    int filasA = a.length;
+    int columnasA = a[0].length;
+    int columnasB = b[0].length;
+    int[][] resultado = new int[filasA][columnasB];
+    
+    for (int i = 0; i < filasA; i++) {
+        for (int j = 0; j < columnasB; j++) {
+            resultado[i][j] = 0;
+            for (int k = 0; k < columnasA; k++) {
+                resultado[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    
+    return resultado;
+}
+
+// Función para calcular transpuesta
+int[][] calcularTranspuesta(int[][] matriz) {
+    int filas = matriz.length;
+    int columnas = matriz[0].length;
+    int[][] transpuesta = new int[columnas][filas];
+    
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            transpuesta[j][i] = matriz[i][j];
+        }
+    }
+    
+    return transpuesta;
+}
+
+// Función para calcular determinante 2x2
+int calcularDeterminante2x2(int[][] matriz) {
+    // det = ad - bc para matriz [[a,b],[c,d]]
+    return (matriz[0][0] * matriz[1][1]) - (matriz[0][1] * matriz[1][0]);
+}
+
+// Función para calcular determinante 3x3
+int calcularDeterminante3x3(int[][] matriz) {
+    // Expansión por la primera fila
+    int a = matriz[0][0];
+    int b = matriz[0][1];
+    int c = matriz[0][2];
+    
+    // Menores 2x2
+    int menor1 = (matriz[1][1] * matriz[2][2]) - (matriz[1][2] * matriz[2][1]);
+    int menor2 = (matriz[1][0] * matriz[2][2]) - (matriz[1][2] * matriz[2][0]);
+    int menor3 = (matriz[1][0] * matriz[2][1]) - (matriz[1][1] * matriz[2][0]);
+    
+    return (a * menor1) - (b * menor2) + (c * menor3);
+}
+
+/*
+================================================================================
+SALIDA ESPERADA:
+================================================================================
+
+=== SISTEMA DE ANALISIS DE DATOS ACADEMICOS ===
+
+--- DECLARACION DE MATRICES 2D ---
+Matrices 2D declaradas exitosamente:
+- calificacionesPorMateria: 4 x 4
+- promediosPorSemestre: 4 x 6
+- matrizA: 3 x 3
+- matrizB: 3 x 3
+
+--- DECLARACION DE MATRICES 3D ---
+Matrices 3D declaradas exitosamente:
+- evaluacionesDetalladas: 4 x 4 x 3
+- temperaturasPorDia: 2 x 3 x 3
+
+--- MODIFICACION DE ELEMENTOS 2D ---
+Calificación original del Estudiante 1 en Física: 92
+Nueva calificación del Estudiante 1 en Física: 95
+Modificaciones adicionales realizadas en otras posiciones
+Matriz de promedios por semestre inicializada
+
+--- MODIFICACION DE ELEMENTOS 3D ---
+Cubo de evaluaciones detalladas inicializado:
+- Estudiante 1, Matemáticas: [88, 92, 85]
+- Estudiante 4, Biología: [96, 93, 97]
+Temperaturas específicas modificadas
+
+--- ACCESO A ELEMENTOS 2D ---
+Análisis de calificaciones por estudiante:
+Estudiante Ana:
+  Matemáticas: 85
+  Física: 95
+  Química: 78
+  Biología: 90
+  Promedio: 87.0
+
+Estudiante Luis:
+  Matemáticas: 90
+  Física: 88
+  Química: 85
+  Biología: 93
+  Promedio: 89.0
+
+Estudiante María:
+  Matemáticas: 82
+  Física: 82
+  Química: 90
+  Biología: 87
+  Promedio: 85.25
+
+Estudiante Carlos:
+  Matemáticas: 95
+  Física: 91
+  Química: 90
+  Biología: 94
+  Promedio: 92.5
+
+Acceso directo a elementos específicos:
+Primera calificación (Ana, Matemáticas): 85
+Última calificación (Carlos, Biología): 94
+Elemento central: 90
+
+--- ACCESO A ELEMENTOS 3D ---
+Análisis de evaluaciones detalladas:
+Estudiante Ana:
+  Matemáticas:
+    Examen 1: 88
+    Examen 2: 92
+    Proyecto: 85
+  Física:
+
+Estudiante Luis:
+  Matemáticas:
+  Física:
+    Examen 1: 85
+    Examen 2: 90
+    Proyecto: 88
+
+Temperaturas registradas:
+Semana 1:
+  Lunes:
+    Mañana: 20.5°C
+    Tarde: 22.1°C
+    Noche: 25.3°C
+  Martes:
+    Mañana: 19.8°C
+    Tarde: 21.5°C
+    Noche: 25.5°C
+  Miércoles:
+    Mañana: 21.2°C
+    Tarde: 23.0°C
+    Noche: 26.1°C
+Semana 2:
+  Lunes:
+    Mañana: 18.5°C
+    Tarde: 21.8°C
+    Noche: 23.3°C
+  Martes:
+    Mañana: 17.8°C
+    Tarde: 19.5°C
+    Noche: 22.7°C
+  Miércoles:
+    Mañana: 19.2°C
+    Tarde: 21.0°C
+    Noche: 24.1°C
+
+--- OPERACIONES CON MATRICES ---
+Matriz A:
+  [3, 2, 1]
+  [1, 4, 2]
+  [2, 1, 3]
+
+Matriz B:
+  [2, 1, 3]
+  [3, 2, 1]
+  [1, 3, 2]
+
+Suma A + B:
+  [5, 3, 4]
+  [4, 6, 3]
+  [3, 4, 5]
+
+Producto A × B:
+  [13, 10, 13]
+  [16, 15, 11]
+  [10, 13, 13]
+
+Verificando operaciones:
+- Suma completada correctamente
+- Multiplicación completada correctamente
+
+--- TRANSPUESTA DE MATRIZ ---
+Matriz original (3x4):
+  [1, 2, 3, 4]
+  [5, 6, 7, 8]
+  [9, 10, 11, 12]
+
+Matriz transpuesta (4x3):
+  [1, 5, 9]
+  [2, 6, 10]
+  [3, 7, 11]
+  [4, 8, 12]
+
+Transpuesta de matriz A:
+  [3, 1, 2]
+  [2, 4, 1]
+  [1, 2, 3]
+
+Doble transpuesta de A (debe ser igual a A original):
+  [3, 2, 1]
+  [1, 4, 2]
+  [2, 1, 3]
+
+--- CALCULO DE DETERMINANTES ---
+Matriz 2x2:
+  [4, 3]
+  [2, 1]
+
+Determinante 2x2: -2
+
+Segunda matriz 2x2:
+  [5, 2]
+  [3, 4]
+
+Determinante 2x2: 14
+
+Matriz A (3x3):
+  [3, 2, 1]
+  [1, 4, 2]
+  [2, 1, 3]
+
+Determinante 3x3 de matriz A: 25
+
+Matriz especial 3x3:
+  [2, -1, 3]
+  [1, 0, 1]
+  [1, 2, -1]
+
+Determinante 3x3: 0
+
+=== ANALISIS DE DATOS ACADEMICOS COMPLETADO ===
+*/

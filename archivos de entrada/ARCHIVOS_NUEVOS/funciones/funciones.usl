@@ -1,0 +1,355 @@
+public static void main() {
+    System.out.println("=== SISTEMA DE GESTION ACADEMICA ===");
+    
+    // Funciones no recursivas sin parámetros
+    mostrarBienvenida();
+    mostrarMenuPrincipal();
+    
+    // Funciones no recursivas con parámetros
+    double promedio1 = calcularPromedio(85, 92, 78);
+    double promedio2 = calcularPromedio(90, 88, 94);
+    
+    System.out.println("Promedio estudiante 1: " + String.valueOf(promedio1));
+    System.out.println("Promedio estudiante 2: " + String.valueOf(promedio2));
+    
+    boolean esAprobado1 = verificarAprobacion(promedio1, 80.0);
+    boolean esAprobado2 = verificarAprobacion(promedio2, 80.0);
+    
+    System.out.println("Estudiante 1 aprobado: " + String.valueOf(esAprobado1));
+    System.out.println("Estudiante 2 aprobado: " + String.valueOf(esAprobado2));
+    
+    String mensaje = generarMensaje("Carlos Pérez", 95);
+    System.out.println(mensaje);
+    
+    // Función con múltiples parámetros
+    double notaFinal = calcularNotaFinal(85, 90, 88, 0.3, 0.4, 0.3);
+    System.out.println("Nota final ponderada: " + String.valueOf(notaFinal));
+    
+    // Funciones recursivas
+    System.out.println("\n--- FUNCIONES RECURSIVAS ---");
+    
+    // Función recursiva 1: Búsqueda binaria
+    int[] numerosOrdenados = {5, 12, 23, 34, 45, 56, 67, 78, 89, 90};
+    int valorBuscado = 45;
+    int posicionEncontrada = busquedaBinaria(numerosOrdenados, valorBuscado, 0, numerosOrdenados.length - 1);
+    System.out.println("Búsqueda binaria de " + String.valueOf(valorBuscado) + 
+                      ": posición " + String.valueOf(posicionEncontrada));
+    
+    valorBuscado = 23;
+    posicionEncontrada = busquedaBinaria(numerosOrdenados, valorBuscado, 0, numerosOrdenados.length - 1);
+    System.out.println("Búsqueda binaria de " + String.valueOf(valorBuscado) + 
+                      ": posición " + String.valueOf(posicionEncontrada));
+    
+    // Función recursiva 2: Suma de dígitos
+    int numero = 12345;
+    int sumaDigitos = sumarDigitos(numero);
+    System.out.println("Suma de dígitos de " + String.valueOf(numero) + ": " + String.valueOf(sumaDigitos));
+    
+    numero = 9876;
+    sumaDigitos = sumarDigitos(numero);
+    System.out.println("Suma de dígitos de " + String.valueOf(numero) + ": " + String.valueOf(sumaDigitos));
+    
+    // Función recursiva 3: Potencia
+    int base = 2;
+    int exponente = 8;
+    int resultadoPotencia = potencia(base, exponente);
+    System.out.println(String.valueOf(base) + " elevado a " + String.valueOf(exponente) + 
+                      " = " + String.valueOf(resultadoPotencia));
+    
+    base = 3;
+    exponente = 4;
+    resultadoPotencia = potencia(base, exponente);
+    System.out.println(String.valueOf(base) + " elevado a " + String.valueOf(exponente) + 
+                      " = " + String.valueOf(resultadoPotencia));
+
+    // Funcion recursiva 4: Palindromo
+    int numeroPalindromo = 121;
+    boolean esPalindromo1 = esPalindromo(numeroPalindromo);
+    System.out.println("El número " + String.valueOf(numeroPalindromo) + 
+                      " es palíndromo: " + String.valueOf(esPalindromo1));
+    
+    numeroPalindromo = 123;
+    boolean esPalindromo2 = esPalindromo(numeroPalindromo);
+    System.out.println("El número " + String.valueOf(numeroPalindromo) + 
+                      " es palíndromo: " + String.valueOf(esPalindromo2));
+    
+    // Parseo de enteros
+    System.out.println("\n--- PARSEO DE ENTEROS ---");
+    
+    String numeroTexto1 = "123";
+    String numeroTexto2 = "456";
+    String numeroTexto3 = "789";
+    
+    int num1 = Integer.parseInt(numeroTexto1);
+    int num2 = Integer.parseInt(numeroTexto2);
+    int num3 = Integer.parseInt(numeroTexto3);
+    
+    System.out.println("Parseando '" + numeroTexto1 + "' a entero: " + String.valueOf(num1));
+    System.out.println("Parseando '" + numeroTexto2 + "' a entero: " + String.valueOf(num2));
+    System.out.println("Parseando '" + numeroTexto3 + "' a entero: " + String.valueOf(num3));
+    
+    int suma = num1 + num2 + num3;
+    System.out.println("Suma de números parseados: " + String.valueOf(suma));
+    
+    // Parseo de flotantes
+    System.out.println("\n--- PARSEO DE FLOTANTES ---");
+    
+    String decimal1 = "3.14159";
+    String decimal2 = "2.71828";
+    
+    double pi = Double.parseDouble(decimal1);
+    double e = Double.parseDouble(decimal2);
+    
+    System.out.println("Parseando '" + decimal1 + "' a double: " + String.valueOf(pi));
+    System.out.println("Parseando '" + decimal2 + "' a double: " + String.valueOf(e));
+    
+    double producto = pi * e;
+    System.out.println("Producto PI * E: " + String.valueOf(producto));
+    
+    String flotanteTexto = "45.67f";
+    float numeroFloat = Float.parseFloat(flotanteTexto);
+    System.out.println("Parseando '" + flotanteTexto + "' a float: " + String.valueOf(numeroFloat));
+    
+    // String.valueOf()
+    System.out.println("\n--- CONVERSIONES CON String.valueOf ---");
+    // Aunque ya se usó en los demás archivos varias veces
+    int entero = 42;
+    double decimal = 3.14159;
+    boolean verdadero = true;
+    char caracter = 'A';
+    
+    String strEntero = String.valueOf(entero);
+    String strDecimal = String.valueOf(decimal);
+    String strBoolean = String.valueOf(verdadero);
+    String strChar = String.valueOf(caracter);
+    
+    System.out.println("int " + String.valueOf(entero) + " como String: " + strEntero);
+    System.out.println("double " + String.valueOf(decimal) + " como String: " + strDecimal);
+    System.out.println("boolean " + String.valueOf(verdadero) + " como String: " + strBoolean);
+    System.out.println("char '" + String.valueOf(caracter) + "' como String: " + strChar);
+    
+    // System.out.println()
+    // Tambíen ya usado en los demás archivos
+    System.out.println("\n--- DEMOSTRACION System.out.println ---");
+    System.out.println("Esta función se ha usado extensivamente en todo el programa");
+    System.out.println("Imprime diferentes tipos de datos:");
+    System.out.println(123);
+    System.out.println(45.67);
+    System.out.println(true);
+    System.out.println('X');
+    
+    // Strings.join()
+    System.out.println("\n--- UNIR CADENAS CON Strings.join ---");
+    
+    String[] estudiantes = {"Ana", "Luis", "Maria", "Carlos"};
+    String listaEstudiantes = String.join(", ", estudiantes);
+    System.out.println("Lista de estudiantes: " + listaEstudiantes);
+    
+    String[] materias = {"Matematicas", "Fisica", "Quimica"};
+    String listaMaterias = String.join(" | ", materias);
+    System.out.println("Materias disponibles: " + listaMaterias);
+    
+    String[] calificacionesTexto = {"85", "92", "78", "95"};
+    String reporteCalificaciones = String.join(" - ", calificacionesTexto);
+    System.out.println("Reporte de calificaciones: " + reporteCalificaciones);
+    
+    // Demostración de función específica sumarCalificaciones
+    System.out.println("\n--- FUNCION: sumarCalificaciones ---");
+    
+    int[] notasEstudiante1 = {85, 90, 88, 92, 87};
+    int[] notasEstudiante2 = {78, 82, 85, 80, 84};
+    
+    double promedioEst1 = sumarCalificaciones(notasEstudiante1);
+    double promedioEst2 = sumarCalificaciones(notasEstudiante2);
+    
+    System.out.println("Promedio estudiante 1: " + String.valueOf(promedioEst1));
+    System.out.println("Promedio estudiante 2: " + String.valueOf(promedioEst2));
+    
+    // Resumen final usando múltiples funciones
+    generarReporteFinal();
+    
+    System.out.println("\n=== SISTEMA COMPLETADO ===");
+}
+
+// Funciones sin parámetros
+void mostrarBienvenida() {
+    System.out.println("\n¡Bienvenido al Sistema de Gestión Académica!");
+    System.out.println("Versión 1.0 - Universidad San Carlos");
+}
+
+void mostrarMenuPrincipal() {
+    System.out.println("\nOpciones disponibles:");
+    System.out.println("1. Gestión de estudiantes");
+    System.out.println("2. Cálculo de promedios");
+    System.out.println("3. Reportes académicos");
+    System.out.println("4. Análisis estadístico");
+}
+
+void generarReporteFinal() {
+    System.out.println("\n--- REPORTE FINAL GENERADO ---");
+    System.out.println("Todas las funciones han sido probadas exitosamente");
+    System.out.println("Sistema verificado y operativo");
+}
+
+// Funciones con parámetros
+double calcularPromedio(int nota1, int nota2, int nota3) {
+    int suma = nota1 + nota2 + nota3;
+    return suma / 3.0;
+}
+
+boolean verificarAprobacion(double promedio, double notaMinima) {
+    return promedio >= notaMinima;
+}
+
+String generarMensaje(String nombre, int calificacion) {
+    String resultado = "Estudiante: " + nombre + " - Calificación: " + String.valueOf(calificacion);
+    if (calificacion >= 90) {
+        resultado = resultado + " - EXCELENTE";
+    } else if (calificacion >= 80) {
+        resultado = resultado + " - MUY BUENO";
+    } else {
+        resultado = resultado + " - REGULAR";
+    }
+    return resultado;
+}
+
+double calcularNotaFinal(int examen1, int examen2, int proyecto, double peso1, double peso2, double peso3) {
+    double notaPonderada = (examen1 * peso1) + (examen2 * peso2) + (proyecto * peso3);
+    return notaPonderada;
+}
+
+// Funciones recursivas
+
+// Función recursiva 1: Búsqueda binaria
+int busquedaBinaria(int[] arreglo, int valor, int inicio, int fin) {
+    if (inicio > fin) {
+        return -1; // No encontrado
+    }
+    
+    int medio = inicio + (fin - inicio) / 2;
+    
+    if (arreglo[medio] == valor) {
+        return medio;
+    }
+    
+    if (arreglo[medio] > valor) {
+        return busquedaBinaria(arreglo, valor, inicio, medio - 1);
+    }
+    return busquedaBinaria(arreglo, valor, medio + 1, fin);
+}
+
+// Función recursiva 2: Suma de dígitos
+int sumarDigitos(int numero) {
+    if (numero == 0) {
+        return 0;
+    }
+    return (numero % 10) + sumarDigitos(numero / 10);
+}
+
+// Función recursiva 3: Potencia
+int potencia(int base, int exponente) {
+    if (exponente == 0) {
+        return 1;
+    }
+    if (exponente == 1) {
+        return base;
+    }
+    return base * potencia(base, exponente - 1);
+}
+
+// Función recursiva 4: Palindromo
+boolean esPalindromo(int numero) {
+    return numero == invertirNumero(numero, 0);
+}
+
+int invertirNumero(int numero, int invertido) {
+    if (numero == 0) {
+        return invertido;
+    }
+    return invertirNumero(numero / 10, invertido * 10 + numero % 10);
+}
+
+// Función para sumar calificaciones de un arreglo y retornar el promedio
+double sumarCalificaciones(int[] calificaciones) {
+    int suma = 0;
+    for (int nota : calificaciones) {
+        suma += nota;
+    }
+    return suma / (double) calificaciones.length;
+}
+
+/*
+================================================================================
+SALIDA ESPERADA:
+================================================================================
+
+=== SISTEMA DE GESTION ACADEMICA ===
+
+¡Bienvenido al Sistema de Gestión Académica!
+Versión 1.0 - Universidad San Carlos
+
+Opciones disponibles:
+1. Gestión de estudiantes
+2. Cálculo de promedios
+3. Reportes académicos
+4. Análisis estadístico
+Promedio estudiante 1: 85.0
+Promedio estudiante 2: 90.66666666666667
+Estudiante 1 aprobado: true
+Estudiante 2 aprobado: true
+Estudiante: Carlos Pérez - Calificación: 95 - EXCELENTE
+Nota final ponderada: 87.9
+
+--- FUNCIONES RECURSIVAS ---
+Búsqueda binaria de 45: posición 4
+Búsqueda binaria de 23: posición 2
+Suma de dígitos de 12345: 15
+Suma de dígitos de 9876: 30
+2 elevado a 8 = 256
+3 elevado a 4 = 81
+El número 121 es palíndromo: true
+El número 123 es palíndromo: false
+
+--- PARSEO DE ENTEROS ---
+Parseando '123' a entero: 123
+Parseando '456' a entero: 456
+Parseando '789' a entero: 789
+Suma de números parseados: 1368
+
+--- PARSEO DE FLOTANTES ---
+Parseando '3.14159' a double: 3.14159
+Parseando '2.71828' a double: 2.71828
+Producto PI * E: 8.539721265199999
+Parseando '45.67f' a float: 45.67
+
+--- CONVERSIONES CON String.valueOf ---
+int 42 como String: 42
+double 3.14159 como String: 3.14159
+boolean true como String: true
+char 'A' como String: A
+
+--- DEMOSTRACION System.out.println ---
+Esta función se ha usado extensivamente en todo el programa
+Imprime diferentes tipos de datos:
+123
+45.67
+true
+X
+
+--- UNIR CADENAS CON Strings.join ---
+Lista de estudiantes: Ana, Luis, Maria, Carlos
+Materias disponibles: Matematicas | Fisica | Quimica
+Reporte de calificaciones: 85 - 92 - 78 - 95
+
+--- FUNCION: sumarCalificaciones ---
+Promedio estudiante 1: 88.4
+Promedio estudiante 2: 81.8
+
+--- REPORTE FINAL GENERADO ---
+Todas las funciones han sido probadas exitosamente
+Sistema verificado y operativo
+
+=== SISTEMA COMPLETADO ===
+
+
+*/

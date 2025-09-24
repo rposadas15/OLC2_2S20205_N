@@ -1,0 +1,264 @@
+public static void main() {
+    System.out.println("=== SISTEMA DE CALCULO CIENTIFICO ===");
+    
+    // Declaración de variables
+    int numeroEntero = 42;
+    float numeroFlotante = 3.14f;
+    double numeroDoble = 2.718281828;
+    char caracter = 'A';
+    boolean esVerdadero = true;
+    String cadenaTexto = "Resultado";
+    
+    // Declaración y uso de constantes
+    final double PI = 3.14159265359;
+    final int CONSTANTE_MAXIMA = 100;
+    final String MENSAJE_SISTEMA = "Calculadora Científica v1.0";
+    CONSTANTE_MAXIMA = 10; // ERROR
+    
+    System.out.println(MENSAJE_SISTEMA);
+    System.out.println("Constante PI: " + String.valueOf(PI));
+    System.out.println("Constante máxima: " + String.valueOf(CONSTANTE_MAXIMA));
+    
+    // Asignación de variables
+    numeroEntero = 100;
+    numeroFlotante = 5.67f;
+    caracter = 'Z';
+    esVerdadero = false;
+    cadenaTexto = "Nuevo resultado";
+    
+    System.out.println("\n--- VALORES ASIGNADOS ---");
+    System.out.println("Entero: " + String.valueOf(numeroEntero));
+    System.out.println("Flotante: " + String.valueOf(numeroFlotante));
+    System.out.println("Carácter: " + String.valueOf(caracter));
+    System.out.println("Booleano: " + String.valueOf(esVerdadero));
+    System.out.println("Cadena: " + cadenaTexto);
+    
+    // Operaciones aritméticas
+    int a = 25;
+    int b = 7;
+    
+    System.out.println("\n--- OPERACIONES ARITMETICAS ---");
+    System.out.println("a = " + String.valueOf(a) + ", b = " + String.valueOf(b));
+    System.out.println("Suma (a + b): " + String.valueOf(a + b));
+    System.out.println("Resta (a - b): " + String.valueOf(a - b));
+    System.out.println("Multiplicación (a * b): " + String.valueOf(a * b));
+    System.out.println("División (a / b): " + String.valueOf(a / b));
+    System.out.println("Módulo (a % b): " + String.valueOf(a % b));
+    
+    // Operaciones relacionales
+    System.out.println("\n--- OPERACIONES RELACIONALES ---");
+    System.out.println("a > b: " + String.valueOf(a > b));
+    System.out.println("a < b: " + String.valueOf(a < b));
+    System.out.println("a >= b: " + String.valueOf(a >= b));
+    System.out.println("a <= b: " + String.valueOf(a <= b));
+    System.out.println("a == b: " + String.valueOf(a == b));
+    System.out.println("a != b: " + String.valueOf(a != b));
+    
+    // Operaciones lógicas
+    boolean condicion1 = true;
+    boolean condicion2 = false;
+    
+    System.out.println("\n--- OPERACIONES LOGICAS ---");
+    System.out.println("condicion1 = " + String.valueOf(condicion1));
+    System.out.println("condicion2 = " + String.valueOf(condicion2));
+    System.out.println("condicion1 && condicion2: " + String.valueOf(condicion1 && condicion2));
+    System.out.println("condicion1 || condicion2: " + String.valueOf(condicion1 || condicion2));
+    System.out.println("!condicion1: " + String.valueOf(!condicion1));
+    System.out.println("!condicion2: " + String.valueOf(!condicion2));
+    
+    // Operadores AND, OR y XOR
+    int x = 12;  // 1100 en binario
+    int y = 10;  // 1010 en binario
+    
+    System.out.println("\n--- OPERADORES DE BITS ---");
+    System.out.println("x = " + String.valueOf(x) + " (binario: 1100)");
+    System.out.println("y = " + String.valueOf(y) + " (binario: 1010)");
+    System.out.println("x & y (AND): " + String.valueOf(x & y));
+    System.out.println("x | y (OR): " + String.valueOf(x | y));
+    System.out.println("x ^ y (XOR): " + String.valueOf(x ^ y));
+    
+    // Operadores de desplazamiento izquierda y derecha
+    int valorDesplazamiento = 16;  // 10000 en binario
+    
+    System.out.println("\n--- DESPLAZAMIENTO DE BITS ---");
+    System.out.println("valor = " + String.valueOf(valorDesplazamiento));
+    System.out.println("valor << 2: " + String.valueOf(valorDesplazamiento << 2));
+    System.out.println("valor >> 2: " + String.valueOf(valorDesplazamiento >> 2));
+    
+    // Secuencias de escape
+    System.out.println("\n--- SECUENCIAS DE ESCAPE ---");
+    System.out.println("Comillas dobles: \"Hola mundo\"");
+    System.out.println("Barra invertida: \\");
+    System.out.println("Nueva línea:\nTexto en línea nueva");
+    System.out.println("Retorno de carro:\rTexto con retorno");
+    System.out.println("Tabulación:\t\tTexto con tab");
+    
+    // Salto de línea compuesto (\r\n)
+    System.out.println("Línea antes del salto compuesto\r\nLínea después del salto compuesto");
+    
+    // Manejo de null
+    String textoNulo = null;
+    System.out.println("\n--- MANEJO DE NULL ---");
+    
+    if (textoNulo == null) {
+        System.out.println("La variable textoNulo es null");
+        textoNulo = "Valor asignado después de verificar null";
+    }
+    
+    System.out.println("textoNulo ahora: " + textoNulo);
+    
+    String otroTextoNulo = null;
+    String resultado = (otroTextoNulo == null) ? "Es null" : otroTextoNulo;
+    System.out.println("Resultado condicional: " + resultado);
+    
+    // Widening Casting completo (char -> int -> float -> double)
+    System.out.println("\n--- WIDENING CASTING AUTOMATICO ---");
+    char letraInicial = 'M';
+    int codigoAscii = letraInicial;        // char -> int
+    float codigoFloat = codigoAscii;       // int -> float  
+    double codigoDouble = codigoFloat;     // float -> double
+    
+    System.out.println("Casting automático progresivo:");
+    System.out.println("char '" + String.valueOf(letraInicial) + "' -> int " + String.valueOf(codigoAscii));
+    System.out.println("int " + String.valueOf(codigoAscii) + " -> float " + String.valueOf(codigoFloat));
+    System.out.println("float " + String.valueOf(codigoFloat) + " -> double " + String.valueOf(codigoDouble));
+    
+    // Narrowing Casting completo (double -> float -> int -> char)
+    System.out.println("\n--- NARROWING CASTING MANUAL ---");
+    double valorGrande = 75.89;
+    float valorMedio = (float) valorGrande;    // double -> float
+    int valorEntero = (int) valorMedio;        // float -> int
+    char caracterFinal = (char) valorEntero;   // int -> char
+    
+    System.out.println("Casting manual regresivo:");
+    System.out.println("double " + String.valueOf(valorGrande) + " -> float " + String.valueOf(valorMedio));
+    System.out.println("float " + String.valueOf(valorMedio) + " -> int " + String.valueOf(valorEntero));
+    System.out.println("int " + String.valueOf(valorEntero) + " -> char '" + String.valueOf(caracterFinal) + "'");
+    
+    int variableComentada = 50; // Comentario al final de línea
+    
+    /*
+     * Este es un comentario
+     * multilínea para indicar
+     * el final del programa
+     * también prueba el comentario
+     */
+    
+    // Cálculo final (útil :))
+    double resultadoFinal = PI * (valorEntero + codigoAscii) / 2.0;
+    System.out.println("\n--- CALCULO FINAL (SIMAULACION CÁLCULO REAL ) ---");
+    System.out.println("Resultado científico: " + String.valueOf(resultadoFinal));
+
+    // --- FIGURAS GEOMETRICAS ---
+    // Círculo
+    double radioCirculoCm = (valorEntero + codigoAscii) / 10.0;
+    double areaCirculoCm2 = PI * radioCirculoCm * radioCirculoCm;
+    double perimetroCirculoCm = 2 * PI * radioCirculoCm;
+
+    // Rectángulo
+    double baseRectCm = a;
+    double alturaRectCm = b;
+    double areaRectCm2 = baseRectCm * alturaRectCm;
+    double perimetroRectCm = 2 * (baseRectCm + alturaRectCm);
+
+    System.out.println("\n--- FIGURAS GEOMETRICAS ---");
+    System.out.println("Circulo -> radio=" + String.format("%.2f", radioCirculoCm) +
+                      " cm, area=" + String.format("%.2f", areaCirculoCm2) +
+                      " cm^2, perimetro=" + String.format("%.2f", perimetroCirculoCm) + " cm");
+    System.out.println("Rectangulo -> base=" + String.format("%.2f", baseRectCm) +
+                      " cm, altura=" + String.format("%.2f", alturaRectCm) +
+                      " cm, area=" + String.format("%.2f", areaRectCm2) +
+                      " cm^2, perimetro=" + String.format("%.2f", perimetroRectCm) + " cm");
+    
+    System.out.println("\n=== FIN DEL SISTEMA ===");
+}
+
+/*
+===================================================
+SALIDA ESPERADA
+===================================================
+
+=== SISTEMA DE CALCULO CIENTIFICO ===
+Calculadora Científica v1.0
+Constante PI: 3.14159265359
+Constante máxima: 100
+
+--- VALORES ASIGNADOS ---
+Entero: 100
+Flotante: 5.67
+Carácter: Z
+Booleano: false
+Cadena: Nuevo resultado
+
+--- OPERACIONES ARITMETICAS ---
+a = 25, b = 7
+Suma (a + b): 32
+Resta (a - b): 18
+Multiplicación (a * b): 175
+División (a / b): 3
+Módulo (a % b): 4
+
+--- OPERACIONES RELACIONALES ---
+a > b: true
+a < b: false
+a >= b: true
+a <= b: false
+a == b: false
+a != b: true
+
+--- OPERACIONES LOGICAS ---
+condicion1 = true
+condicion2 = false
+condicion1 && condicion2: false
+condicion1 || condicion2: true
+!condicion1: false
+!condicion2: true
+
+--- OPERADORES DE BITS ---
+x = 12 (binario: 1100)
+y = 10 (binario: 1010)
+x & y (AND): 8
+x | y (OR): 14
+x ^ y (XOR): 6
+
+--- DESPLAZAMIENTO DE BITS ---
+valor = 16
+valor << 2: 64
+valor >> 2: 4
+
+--- SECUENCIAS DE ESCAPE ---
+Comillas dobles: "Hola mundo"
+Barra invertida: \
+Nueva línea:
+Texto en línea nueva
+Texto con retorno
+Tabulación:	  Texto con tab
+Línea antes del salto compuesto
+Línea después del salto compuesto
+
+--- MANEJO DE NULL ---
+La variable textoNulo es null
+textoNulo ahora: Valor asignado después de verificar null
+Resultado condicional: Es null
+
+--- WIDENING CASTING AUTOMATICO ---
+Casting automático progresivo:
+char 'M' -> int 77
+int 77 -> float 77.0
+float 77.0 -> double 77.0
+
+--- NARROWING CASTING MANUAL ---
+Casting manual regresivo:
+double 75.89 -> float 75.89
+float 75.89 -> int 75
+int 75 -> char 'K'
+
+--- CALCULO FINAL (SIMAULACION CÁLCULO REAL ) ---
+Resultado científico: 238.76104166875
+
+--- FIGURAS GEOMETRICAS ---
+Circulo -> radio=15.20 cm, area=725.83 cm^2, perimetro=95.50 cm
+Rectangulo -> base=25.00 cm, altura=7.00 cm, area=175.00 cm^2, perimetro=64.00 cm
+
+=== FIN DEL SISTEMA ===
+*/
